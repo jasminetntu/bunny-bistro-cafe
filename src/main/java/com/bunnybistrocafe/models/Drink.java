@@ -110,6 +110,19 @@ public abstract class Drink implements MenuItem {
     }
 
     // *** OTHER ***
+    protected double calculateSharedPrice() {
+        double sharedPrice = getSize().getPrice() + getType().getPrice() + getSweetener().getPrice();
+
+        for (Topping t : getToppings()) {
+            sharedPrice += t.getPrice();
+        }
+
+        if (hasPlushie()) {
+            sharedPrice += getPlushiePrice();
+        }
+
+        return sharedPrice;
+    }
 
     @Override
     public String toString() {
