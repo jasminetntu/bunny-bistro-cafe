@@ -22,15 +22,8 @@ public class Matcha extends Drink {
 
     @Override
     public double getPrice() {
-        double totalPrice = getSize().getPrice() + getType().getPrice() + getSweetener().getPrice() + milk.getPrice();
-
-        for (Topping t : getToppings()) {
-            totalPrice += t.getPrice();
-        }
-
-        if (hasPlushie()) {
-            totalPrice += getPlushiePrice();
-        }
+        double totalPrice = calculateSharedPrice();
+        totalPrice += milk.getPrice();
 
         return totalPrice;
     }
