@@ -5,7 +5,6 @@ import com.bunnybistrocafe.enumerations.drinkcustomizations.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.StringJoiner;
 
 public abstract class Drink implements MenuItem {
     private DrinkSize size;
@@ -67,6 +66,10 @@ public abstract class Drink implements MenuItem {
 
     public boolean hasPlushie() {
         return hasPlushie;
+    }
+
+    public double getPlushiePrice() {
+        return 2.99;
     }
 
     // *** SETTERS ***
