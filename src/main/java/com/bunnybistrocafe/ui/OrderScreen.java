@@ -1,6 +1,7 @@
 package com.bunnybistrocafe.ui;
 
 import com.bunnybistrocafe.controllers.OrderManager;
+import com.bunnybistrocafe.enumerations.ActionOption;
 import com.bunnybistrocafe.enumerations.OrderOption;
 import com.bunnybistrocafe.util.UserInterface;
 
@@ -22,37 +23,42 @@ public class OrderScreen implements Screen {
 
         while (isRunning) {
             UserInterface.printHomeMenu();
+            String input = scnr.nextLine().trim();
 
-            try {
-                orderChoice = OrderOption.fromNum(Integer.parseInt(scnr.nextLine()));
+            // go back to previous screen if R
+            if (ActionOption.RETURN.getAbbreviation().equalsIgnoreCase(input)) {
+                isRunning = false;
+            }
+            else { // compare w order options
+                try {
+                    orderChoice = OrderOption.fromNum(Integer.parseInt(input));
 
-                switch (orderChoice) {
-                    case ADD_DRINK -> {
-                        DrinkScreen ds = new DrinkScreen(scnr);
-                        ds.displayScreen();
+                    switch (orderChoice) {
+                        case ADD_DRINK -> {
+                            DrinkScreen ds = new DrinkScreen(scnr, orderManager);
+                            ds.displayScreen();
+                        }
+                        case ADD_PASTRY -> {
+                            PastryScreen ps = new PastryScreen(scnr, orderManager);
+                            ps.displayScreen();
+                        }
+                        case ADD_ENTREE -> {
+                            EntreeScreen es = new EntreeScreen(scnr, orderManager);
+                            es.displayScreen();
+                        }
+                        case VIEW_ORDER_SUMMARY -> {
+                            //tba
+                        }
+                        case CHECKOUT -> {
+                            CheckoutScreen cs = new CheckoutScreen();
+                            cs.displayScreen(scnr, orderManager);
+                        }
                     }
-                    case ADD_PASTRY -> {
-                        PastryScreen ps = new PastryScreen(scnr);
-                        ps.displayScreen();
-                    }
-                    case ADD_ENTREE -> {
-                        EntreeScreen es = new EntreeScreen(scnr);
-                        es.displayScreen();
-                    }
-                    case VIEW_ORDER_SUMMARY -> {
-                        //tba
-                    }
-                    case CHECKOUT -> {
-                        CheckoutScreen cs = new CheckoutScreen();
-                        cs.displayScreen(scnr);
-                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Input must be numeric.");
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Invalid input. Must be 1-5 or R.");
                 }
-            }
-            catch (NumberFormatException e) {
-                System.out.println("Input must be numeric.");
-            }
-            catch (IllegalArgumentException e) {
-                System.out.println("Invalid input. Must be 1-5 or R.");
             }
         }
     }
