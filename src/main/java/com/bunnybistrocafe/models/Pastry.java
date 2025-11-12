@@ -1,24 +1,24 @@
 package com.bunnybistrocafe.models;
 
 public enum Pastry implements MenuItem {
-    PLAIN_CROISSANT("PC", "Plain Croissant", 2.50), STRAWBERRY_CROISSANT("SC", "Strawberry Croissant", 6.00), 
-    MANGO_CROISSANT("MC", "Mango Croissant", 6.00), BANANA_BREAD("BB", "Banana Bread", 4.00), 
-    COFFEE_CAKE("CC", "Coffee Cake", 4.00), CHOCO_CHIP_COOKIE("CCC", "Chocolate-Chip Cookie", 2.00),
-    FRUIT_TART("FT", "Fruit Tart", 5.00), GLAZED_DONUT("GD", "Glazed Donut", 2.00),
-    STRAWBERRY_SANDO("SS", "Strawberry Sando", 8.00);
+    PLAIN_CROISSANT(1, "Plain Croissant", 2.50), STRAWBERRY_CROISSANT(2, "Strawberry Croissant", 6.00),
+    MANGO_CROISSANT(3, "Mango Croissant", 6.00), BANANA_BREAD(4, "Banana Bread", 4.00),
+    COFFEE_CAKE(5, "Coffee Cake", 4.00), CHOCO_CHIP_COOKIE(6, "Chocolate-Chip Cookie", 2.00),
+    FRUIT_TART(7, "Fruit Tart", 5.00), GLAZED_DONUT(8, "Glazed Donut", 2.00),
+    STRAWBERRY_SANDO(9, "Strawberry Sando", 8.00);
 
-    private final String abbreviation;
+    private final int num;
     private final String name;
     private final double price;
 
-    Pastry(String abbreviation, String name, double price) {
-        this.abbreviation = abbreviation;
+    Pastry(int num, String name, double price) {
+        this.num = num;
         this.name = name;
         this.price = price;
     }
 
-    public String getAbbreviation() {
-        return abbreviation;
+    public int getNum() {
+        return num;
     }
 
     public String getName() {
@@ -30,13 +30,11 @@ public enum Pastry implements MenuItem {
         return price;
     }
 
-    public Pastry fromAbbreviation(String abbrev) {
-        abbrev = abbrev.trim().toUpperCase();
-
+    public Pastry fromNum(int num) {
         // iterate through all enum values
         for (Pastry option : Pastry.values()) {
             // check if input letter matches associated letter
-            if (option.abbreviation.equals(abbrev)) {
+            if (option.num == num) {
                 return option;
             }
         }

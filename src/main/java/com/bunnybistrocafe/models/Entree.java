@@ -1,21 +1,21 @@
 package com.bunnybistrocafe.models;
 
 public enum Entree implements MenuItem {
-    EGG_SANDO ("ES", "Egg Sando", 7.00), HOUSE_SALAD ("HS", "House Salad", 10.00),
-    CHICKEN_KATSU_SANDO ("CKS", "Chicken Katsu Sando", 12.50), SAVORY_CREPE ("SC", "Savory Crepe", 15.00);
+    EGG_SANDO (1, "Egg Sando", 7.00), HOUSE_SALAD (2, "House Salad", 10.00),
+    CHICKEN_KATSU_SANDO (3, "Chicken Katsu Sando", 12.50), SAVORY_CREPE (4, "Savory Crepe", 15.00);
 
-    private final String abbreviation;
+    private final int num;
     private final String name;
     private final double price;
 
-    Entree(String abbreviation, String name, double price) {
-        this.abbreviation = abbreviation;
+    Entree(int num, String name, double price) {
+        this.num = num;
         this.name = name;
         this.price = price;
     }
 
-    public String getAbbreviation() {
-        return abbreviation;
+    public int getNum() {
+        return num;
     }
 
     public String getName() {
@@ -27,13 +27,11 @@ public enum Entree implements MenuItem {
         return price;
     }
 
-    public Entree fromAbbreviation(String abbrev) {
-        abbrev = abbrev.trim().toUpperCase();
-
+    public Entree fromNum(int num) {
         // iterate through all enum values
         for (Entree option : Entree.values()) {
             // check if input letter matches associated letter
-            if (option.abbreviation.equals(abbrev)) {
+            if (option.num == num) {
                 return option;
             }
         }

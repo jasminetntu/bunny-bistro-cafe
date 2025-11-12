@@ -126,7 +126,7 @@ public abstract class Drink implements MenuItem {
 
     // *** OTHER ***
     protected double calculateSharedPrice() {
-        double sharedPrice = getSize().getPrice() + getType().getPrice() + getSweetener().getPrice();
+        double sharedPrice = size.getPrice() + type.getPrice() + sweetener.getPrice();
 
         for (Topping t : getToppings()) {
             sharedPrice += t.getPrice();
