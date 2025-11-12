@@ -25,7 +25,7 @@ public enum TeaFlavor {
         return 0.25;
     }
 
-    public TeaFlavor fromAbbreviation(int num) {
+    public TeaFlavor fromNum(int num) {
         // iterate through all enum values
         for (TeaFlavor option : TeaFlavor.values()) {
             // check if input letter matches associated letter

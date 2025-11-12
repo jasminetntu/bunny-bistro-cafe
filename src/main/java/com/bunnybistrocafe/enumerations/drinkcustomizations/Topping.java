@@ -40,7 +40,7 @@ public enum Topping {
         }
     }
 
-    public Topping fromAbbreviation(int num) {
+    public Topping fromNum(int num) {
         // iterate through all enum values
         for (Topping option : Topping.values()) {
             // check if input letter matches associated letter

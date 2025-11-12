@@ -1,7 +1,5 @@
 package com.bunnybistrocafe.enumerations.drinkcustomizations;
 
-import com.bunnybistrocafe.enumerations.ActionOption;
-
 public enum DrinkSize {
     SMALL("S", "Small", 4.95), MEDIUM("M", "Medium", 5.95), LARGE("L", "Large", 6.95);
 

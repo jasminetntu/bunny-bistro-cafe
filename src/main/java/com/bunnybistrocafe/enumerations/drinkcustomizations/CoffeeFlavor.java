@@ -3,14 +3,17 @@ package com.bunnybistrocafe.enumerations.drinkcustomizations;
 public enum CoffeeFlavor {
     MOCHA ("M", "Mocha"), CARAMEL ("C", "Caramel"), VANILLA ("V", "Vanilla");
 
+    // attributes
     private final String abbreviation;
     private final String name;
 
+    // constructor
     CoffeeFlavor(String abbreviation, String name) {
         this.abbreviation = abbreviation;
         this.name = name;
     }
 
+    // getters
     public String getAbbreviation() {
         return abbreviation;
     }
@@ -23,6 +26,7 @@ public enum CoffeeFlavor {
         return 0.25;
     }
 
+    // special method
     public CoffeeFlavor fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
