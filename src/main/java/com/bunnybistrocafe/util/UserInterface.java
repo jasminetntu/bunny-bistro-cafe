@@ -1,7 +1,7 @@
 package com.bunnybistrocafe.util;
 
 public class UserInterface {
-    public void printHomeMenu() {
+    public static void printHomeMenu() {
         System.out.print("""
                    ∩_∩
                  („• •„)
@@ -15,7 +15,7 @@ public class UserInterface {
                 > Enter choice (N, X):\s""");
     }
 
-    public void printOrderMenu() {
+    public static void printOrderMenu() {
         System.out.print("""
                    ∩_∩
                  („• •„)
@@ -34,7 +34,7 @@ public class UserInterface {
                 > Enter choice (1-5, R):\s""");
     }
 
-    public void printDrinkMenu() {
+    public static void printDrinkMenu() {
         System.out.print("""
                    ∩_∩
                  („• •„)
@@ -51,7 +51,7 @@ public class UserInterface {
                 > Enter choice (1-3, R):\s""");
     }
 
-    public void printPastryMenu() {
+    public static void printPastryMenu() {
         System.out.print("""
                    ∩_∩
                  („• •„)
@@ -74,7 +74,7 @@ public class UserInterface {
                 > Enter choice (1-9, R):\s""");
     }
 
-    public void printEntreeMenu() {
+    public static void printEntreeMenu() {
         System.out.print("""
                    ∩_∩
                  („• •„)
@@ -92,7 +92,7 @@ public class UserInterface {
                 > Enter choice (1-4, R):\s""");
     }
 
-    public void printCheckoutMenu() {
+    public static void printCheckoutMenu() {
         System.out.print("""
                    ∩_∩
                  („• •„)
@@ -106,7 +106,7 @@ public class UserInterface {
                 > Enter choice (Y, N, R):\s""");
     }
 
-    public void printSignatureDrinkMenu() {
+    public static void printSignatureDrinkMenu() {
         System.out.print("""
                 Signature drinks TBA.""");
     }
