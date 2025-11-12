@@ -1,7 +1,7 @@
 package com.bunnybistrocafe.enumerations;
 
 public enum OrderOption {
-    ADD_DRINK(1), ADD_FOOD_ITEM(2), CHECKOUT(3);
+    ADD_DRINK(1), ADD_PASTRY(2), ADD_ENTREE(3), VIEW_ORDER_SUMMARY(4), CHECKOUT(5);
 
     private final int num;
 
