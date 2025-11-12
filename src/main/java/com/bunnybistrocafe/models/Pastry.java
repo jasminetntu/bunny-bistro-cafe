@@ -30,7 +30,7 @@ public enum Pastry implements MenuItem {
         return price;
     }
 
-    public Pastry fromNum(int num) {
+    public static Pastry fromNum(int num) {
         // iterate through all enum values
         for (Pastry option : Pastry.values()) {
             // check if input letter matches associated letter
@@ -39,7 +39,7 @@ public enum Pastry implements MenuItem {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throws exception
         throw new IllegalArgumentException();
     }
 }

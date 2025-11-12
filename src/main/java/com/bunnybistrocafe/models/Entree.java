@@ -27,7 +27,7 @@ public enum Entree implements MenuItem {
         return price;
     }
 
-    public Entree fromNum(int num) {
+    public static Entree fromNum(int num) {
         // iterate through all enum values
         for (Entree option : Entree.values()) {
             // check if input letter matches associated letter
@@ -36,7 +36,7 @@ public enum Entree implements MenuItem {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throws exception
         throw new IllegalArgumentException();
     }
 }
