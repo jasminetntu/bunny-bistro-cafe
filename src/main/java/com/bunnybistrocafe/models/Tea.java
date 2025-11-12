@@ -44,11 +44,16 @@ public class Tea extends Drink {
         this.teaType = teaType;
     }
 
-    public void addFlavor(TeaFlavor flavor) {
-        flavors.add(flavor);
+    public boolean addFlavor(TeaFlavor flavor) {
+        if (flavors.size() < 3) {
+            return flavors.add(flavor);
+        }
+        else { //when milk tea already has 3 flavors, can't add more
+            return false;
+        }
     }
 
-    public void removeFlavor(TeaFlavor flavor) {
-        flavors.remove(flavor);
+    public boolean removeFlavor(TeaFlavor flavor) {
+        return flavors.remove(flavor);
     }
 }

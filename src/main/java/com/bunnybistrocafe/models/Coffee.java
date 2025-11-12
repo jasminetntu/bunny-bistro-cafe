@@ -45,12 +45,17 @@ public class Coffee extends Drink {
         this.milk = milk;
     }
 
-    public void addFlavor(CoffeeFlavor flavor) {
-        flavors.add(flavor);
+    public boolean addFlavor(CoffeeFlavor flavor) {
+        if (flavors.size() < 2) {
+            return flavors.add(flavor);
+        }
+        else { //when coffee already has 2 flavors, can't add more
+            return false;
+        }
     }
 
-    public void removeFlavor(CoffeeFlavor flavor) {
-        flavors.remove(flavor);
+    public boolean removeFlavor(CoffeeFlavor flavor) {
+        return flavors.remove(flavor);
     }
 
 }

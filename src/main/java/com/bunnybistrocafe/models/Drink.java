@@ -97,12 +97,17 @@ public abstract class Drink implements MenuItem {
         this.iceLevel = iceLevel;
     }
 
-    public void addTopping(Topping topping) {
-        this.toppings.add(topping);
+    public boolean addTopping(Topping topping) {
+        if (toppings.size() < 5) {
+            return this.toppings.add(topping);
+        }
+        else { //when drink already has 5 toppings, can't add more
+            return false;
+        }
     }
 
-    public void removeTopping(Topping topping) {
-        this.toppings.remove(topping);
+    public boolean removeTopping(Topping topping) {
+        return this.toppings.remove(topping);
     }
 
     public void setHasPlushie(boolean hasPlushie) {
