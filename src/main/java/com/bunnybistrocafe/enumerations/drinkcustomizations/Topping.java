@@ -40,7 +40,7 @@ public enum Topping {
         }
     }
 
-    public Topping fromNum(int num) {
+    public static Topping fromNum(int num) {
         // iterate through all enum values
         for (Topping option : Topping.values()) {
             // check if input letter matches associated letter
@@ -49,7 +49,7 @@ public enum Topping {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

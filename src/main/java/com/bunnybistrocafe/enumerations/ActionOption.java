@@ -13,7 +13,7 @@ public enum ActionOption {
         return abbreviation;
     }
 
-    public ActionOption fromAbbreviation(String abbrev) {
+    public static ActionOption fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
         // iterate through all enum values
@@ -24,7 +24,7 @@ public enum ActionOption {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

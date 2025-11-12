@@ -26,7 +26,7 @@ public enum SweetenerType {
         return price;
     }
 
-    public SweetenerType fromAbbreviation(String abbrev) {
+    public static SweetenerType fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
         // iterate through all enum values
@@ -37,7 +37,7 @@ public enum SweetenerType {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

@@ -26,7 +26,7 @@ public enum DrinkType {
         return price;
     }
 
-    public DrinkType fromAbbreviation(String abbrev) {
+    public static DrinkType fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
         // iterate through all enum values
@@ -37,7 +37,7 @@ public enum DrinkType {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

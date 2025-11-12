@@ -26,7 +26,7 @@ public enum MilkType {
         return price;
     }
 
-    public MilkType fromAbbreviation(String abbrev) {
+    public static MilkType fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
         // iterate through all enum values
@@ -37,7 +37,7 @@ public enum MilkType {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

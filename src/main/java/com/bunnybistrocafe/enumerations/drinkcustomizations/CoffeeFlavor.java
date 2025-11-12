@@ -27,7 +27,7 @@ public enum CoffeeFlavor {
     }
 
     // special method
-    public CoffeeFlavor fromAbbreviation(String abbrev) {
+    public static CoffeeFlavor fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
         // iterate through all enum values
@@ -38,7 +38,7 @@ public enum CoffeeFlavor {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

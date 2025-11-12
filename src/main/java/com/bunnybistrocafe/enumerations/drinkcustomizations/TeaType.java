@@ -20,7 +20,7 @@ public enum TeaType {
         return name;
     }
 
-    public TeaType fromAbbreviation(String abbrev) {
+    public static TeaType fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
         // iterate through all enum values
@@ -31,7 +31,7 @@ public enum TeaType {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

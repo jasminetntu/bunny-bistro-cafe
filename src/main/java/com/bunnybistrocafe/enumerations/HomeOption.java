@@ -13,7 +13,7 @@ public enum HomeOption {
         return abbreviation;
     }
 
-    public HomeOption fromAbbreviation(String abbrev) {
+    public static HomeOption fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
         // iterate through all enum values
@@ -24,7 +24,7 @@ public enum HomeOption {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

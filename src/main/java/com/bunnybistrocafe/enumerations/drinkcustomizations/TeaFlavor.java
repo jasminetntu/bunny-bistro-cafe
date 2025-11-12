@@ -25,7 +25,7 @@ public enum TeaFlavor {
         return 0.25;
     }
 
-    public TeaFlavor fromNum(int num) {
+    public static TeaFlavor fromNum(int num) {
         // iterate through all enum values
         for (TeaFlavor option : TeaFlavor.values()) {
             // check if input letter matches associated letter
@@ -34,7 +34,7 @@ public enum TeaFlavor {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

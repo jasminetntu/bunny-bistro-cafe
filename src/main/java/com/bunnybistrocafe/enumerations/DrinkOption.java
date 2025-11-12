@@ -13,7 +13,7 @@ public enum DrinkOption {
         return num;
     }
 
-    public DrinkOption fromNum(int num) {
+    public static DrinkOption fromNum(int num) {
         // iterate through all enum values
         for (DrinkOption option : DrinkOption.values()) {
             // check if input letter matches associated letter
@@ -22,7 +22,7 @@ public enum DrinkOption {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }

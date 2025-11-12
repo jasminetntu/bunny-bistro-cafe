@@ -13,7 +13,7 @@ public enum OrderOption {
         return num;
     }
 
-    public OrderOption fromNum(int num) {
+    public static OrderOption fromNum(int num) {
         // iterate through all enum values
         for (OrderOption option : OrderOption.values()) {
             // check if input letter matches associated letter
@@ -22,7 +22,7 @@ public enum OrderOption {
             }
         }
 
-        // if no match is found, return null
+        // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
 }
