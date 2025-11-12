@@ -25,7 +25,7 @@ public class HomeScreen implements Screen {
 
                 switch (homeChoice) {
                     case NEW_ORDER -> {
-                        OrderScreen os = new OrderScreen();
+                        OrderScreen os = new OrderScreen(scnr);
                         os.displayScreen();
                     }
                     case EXIT -> {
