@@ -1,5 +1,6 @@
 package com.bunnybistrocafe.models;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -7,6 +8,9 @@ public class Order {
     private List<MenuItem> items;
 
     // *** CONSTRUCTORS ***
+    public Order() {
+        this.items = new ArrayList<>();
+    }
 
     public Order(List<MenuItem> items) {
         this.items = items;

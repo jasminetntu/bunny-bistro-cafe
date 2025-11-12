@@ -11,6 +11,12 @@ public class Coffee extends Drink {
     private ArrayList<CoffeeFlavor> flavors; //max 2
 
     // *** CONSTRUCTORS ***
+    public Coffee() {
+        super();
+        this.milk = MilkType.WHOLE;
+        this.flavors = new ArrayList<>();
+    }
+
     public Coffee(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
                   boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie,
                   MilkType milk, ArrayList<CoffeeFlavor> flavors) {

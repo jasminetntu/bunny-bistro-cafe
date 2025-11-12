@@ -11,6 +11,12 @@ public class Tea extends Drink {
     private ArrayList<TeaFlavor> flavors; //max 3
 
     // *** CONSTRUCTORS ***
+    public Tea() {
+        super();
+        this.teaType = TeaType.BLACK;
+        this.flavors = new ArrayList<>();
+    }
+
     public Tea(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
                boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie,
                TeaType teaType, ArrayList<TeaFlavor> flavors) {

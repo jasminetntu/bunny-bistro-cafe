@@ -17,6 +17,16 @@ public abstract class Drink implements MenuItem {
     private boolean hasPlushie;
 
     // *** CONSTRUCTORS ***
+    public Drink() {
+        this.size = DrinkSize.MEDIUM;
+        this.type = DrinkType.TEA;
+        this.sweetener = SweetenerType.CANE_SUGAR;
+        this.sweetnessLevel = 1;
+        this.isIced = true;
+        this.iceLevel = 1;
+        this.toppings = new ArrayList<>();
+        this.hasPlushie = false;
+    }
 
     public Drink(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
                  boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie) {

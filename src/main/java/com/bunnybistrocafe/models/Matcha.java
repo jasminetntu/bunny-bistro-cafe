@@ -8,6 +8,10 @@ public class Matcha extends Drink {
     private MilkType milk;
 
     // *** CONSTRUCTORS ***
+    public Matcha() {
+        super();
+        this.milk = MilkType.WHOLE;
+    }
 
     public Matcha(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel, boolean isIced,
                   double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie, MilkType milk) {
