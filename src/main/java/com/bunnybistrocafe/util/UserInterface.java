@@ -1,13 +1,10 @@
 package com.bunnybistrocafe.util;
 
-import com.bunnybistrocafe.enumerations.drinkcustomizations.*;
-
-import java.util.ArrayList;
-
 public class UserInterface {
     // *** MENUS ***
     public static void printHomeMenu() {
         System.out.print("""
+                
                    ∩_∩
                  („• •„)
                 •··U U··················•·······················•
@@ -22,6 +19,7 @@ public class UserInterface {
 
     public static void printOrderMenu() {
         System.out.print("""
+                
                    ∩_∩
                  („• •„)
                 •··U U··················•·······················•
@@ -41,6 +39,7 @@ public class UserInterface {
 
     public static void printDrinkMenu() {
         System.out.print("""
+                
                    ∩_∩
                  („• •„)
                 •··U U··················•·······················•
@@ -58,6 +57,7 @@ public class UserInterface {
 
     public static void printPastryMenu() {
         System.out.print("""
+                
                    ∩_∩
                  („• •„)
                 •··U U··················•·······················•
@@ -81,6 +81,7 @@ public class UserInterface {
 
     public static void printEntreeMenu() {
         System.out.print("""
+                
                    ∩_∩
                  („• •„)
                 •··U U··················•·······················•
@@ -99,6 +100,7 @@ public class UserInterface {
 
     public static void printCheckoutMenu() {
         System.out.print("""
+                
                    ∩_∩
                  („• •„)
                 •··U U··················•·······················•
@@ -119,8 +121,9 @@ public class UserInterface {
     // *** DRINK CUSTOMIZATION OPTIONS ***
     public static void printSizeOptions() {
         System.out.println("""
+                
                 •···················•···················•
-                ·              Choose Size              ·
+                ·             Choose Size 🧋            ·
                 •···················•···················•
                 ·   (S) Small                   $4.95   ·
                 ·   (M) Medium (default)        $5.95   ·
@@ -133,13 +136,14 @@ public class UserInterface {
 
     public static void printDrinkTypeOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·             Choose Drink              ·
+                ·             Choose Drink 🥤           ·
                 •···················•···················•
-                ·   (M)  Matcha Latte          +$1.50   ·
-                ·   (C)  Caffe Latte           +$1.00   ·
-                ·   (MT) Milk Tea                       ·
-                ·   (T)  Tea                            ·
+                ·   (M)  🍵 Matcha Latte       +$1.50   ·
+                ·   (C)  ☕️ Caffe Latte        +$1.00   ·
+                ·   (MT) 🧋 Milk Tea                    ·
+                ·   (T)  🫖 Tea                         ·
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
@@ -148,14 +152,15 @@ public class UserInterface {
 
     public static void printTeaTypeOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·              Choose Tea               ·
+                ·              Choose Tea 🫖            ·
                 •···················•···················•
-                ·   (B) Black Tea                       ·
-                ·   (G) Green Tea                       ·
-                ·   (O) Oolong Tea                      ·
-                ·   (T) Thai Tea                        ·
-                ·   (W) White Tea                       ·
+                ·   (B) ⚫️ Black Tea                    ·
+                ·   (G) 🟢 Green Tea                    ·
+                ·   (O) 🟤 Oolong Tea                   ·
+                ·   (T) 🟠 Thai Tea                     ·
+                ·   (W) ⚪️ White Tea                    ·
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
@@ -164,17 +169,18 @@ public class UserInterface {
 
     public static void printTeaFlavorOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·            Choose Flavor(s)           ·
+                ·            Choose Flavor(s) 🫖        ·
                 ·        +$0.25 per flavor (3 max)      ·
                 •···················•···················•
-                ·   (1) Strawberry                      ·
-                ·   (2) Mango                           ·
-                ·   (3) Passionfruit                    ·
-                ·   (4) Peach                           ·
-                ·   (5) Lychee                          ·
-                ·   (6) Watermelon                      ·
-                ·   (7) Wintermelon                     ·
+                ·   (1) 🍓 Strawberry                   ·
+                ·   (2) 🥭 Mango                        ·
+                ·   (3) 🏵️️ Passionfruit                 ·
+                ·   (4) 🍑 Peach                        ·
+                ·   (5) 🌴 Lychee                       ·
+                ·   (6) 🍉 Watermelon                   ·
+                ·   (7) 🍈 Wintermelon                  ·
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 ·                                       ·
@@ -186,11 +192,12 @@ public class UserInterface {
 
     public static void printIcedOrHotOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·              Iced or Hot?             ·
+                ·           Iced 🧊 or Hot 🔥?          ·
                 •···················•···················•
-                ·   (I) Iced (default)                  ·
-                ·   (H) Hot                             ·
+                ·   (I) 🧊 Iced (default)               ·
+                ·   (H) 🔥 Hot                          ·
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
@@ -199,13 +206,14 @@ public class UserInterface {
 
     public static void printCoffeeFlavorOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·            Choose Flavor(s)           ·
+                ·           Choose Flavor(s) ☕️         ·
                 ·       +$0.25 per flavor (2 max)       ·
                 •···················•···················•
-                ·   (M) Mocha                           ·
-                ·   (C) Caramel                         ·
-                ·   (V) Vanilla                         ·
+                ·   (M) 🍫 Mocha                        ·
+                ·   (C) 🍮 Caramel                      ·
+                ·   (V) 🍦 Vanilla                      ·
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 ·                                       ·
@@ -217,12 +225,13 @@ public class UserInterface {
 
     public static void printSweetenerTypeOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·            Choose Sweetener           ·
+                ·           Choose Sweetener 🍭         ·
                 •···················•···················•
-                ·   (C) Cane Sugar (default)            ·
-                ·   (S) Stevia                          ·
-                ·   (H) Honey                  +$0.50   ·
+                ·   (C) 🎋 Cane Sugar (default)         ·
+                ·   (S) 🌱 Stevia                       ·
+                ·   (H) 🍯 Honey               +$0.50   ·
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
@@ -231,8 +240,9 @@ public class UserInterface {
 
     public static void printSweetnessLevelOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·        Choose Sweetness Level         ·
+                ·       Choose Sweetness Level 🍭       ·
                 •···················•···················•
                 ·   > 125%                              ·
                 ·   > 100% (default)                    ·
@@ -250,8 +260,9 @@ public class UserInterface {
 
     public static void printIceLevelOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·            Choose Ice Level           ·
+                ·           Choose Ice Level 🧊         ·
                 •···················•···················•
                 ·   > 125%                              ·
                 ·   > 100% (default)                    ·
@@ -269,8 +280,9 @@ public class UserInterface {
 
     public static void printMilkTypeOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·              Choose Milk              ·
+                ·             Choose Milk 🥛            ·
                 •···················•···················•
                 ·   (W) Whole Milk (default)            ·
                 ·   (N) Non-dairy Creamer               ·
@@ -284,11 +296,12 @@ public class UserInterface {
 
     public static void printToppingOptions() {
         System.out.print("""
+                
                 •···················•···················•···················•···················•
-                ·                               Choose Topping(s)                              ·
+                ·                              Choose Topping(s) 🍬                             ·
                 ·                                    (5 max)                                    ·
                 •···················•···················•···················•···················•
-                · Regular Toppings (+$0.75 each)        ·   Premium Toppings (+$1.00 each)      ·
+                · 🌸 Regular Toppings (+$0.75 each)     · 🌟 Premium Toppings (+$1.00 each)     ·
                 ·   (1)  Boba/Tapioca Pearls            ·       11) Cream Top                   ·
                 ·   (2)  Crystal Boba                   ·       12) Taro Chunks                 ·
                 ·   (3)  Aloe Vera                      ·       13) Red Bean Chunks             ·
@@ -302,7 +315,7 @@ public class UserInterface {
                 •···················•···················•···················•···················•
                 ·   (R) Return to order (cancel drink)                                          ·
                 ·                                                                               ·
-                · *Separate topping numbers w/ comma.    *You may have duplicate toppings.      ·
+                · *Separate topping numbers w/ comma.    *You can have duplicate toppings.      ·
                 · *Leave blank & enter to skip.                                                 ·
                 •···················•···················•···················•···················•
                 """);
@@ -310,11 +323,12 @@ public class UserInterface {
 
     public static void printPlushieOptions() {
         System.out.print("""
+                
                 •···················•···················•
-                ·   SPECIAL: Upgrade to a plushie cup?  ·
+                ·      Upgrade to a plushie cup? 🧸     ·
                 •···················•···················•
-                ·   (Y) Yes                             ·
-                ·   (N) No                              ·
+                ·   (Y) 👍 Yes                          ·
+                ·   (N) 👎 No                           ·
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
