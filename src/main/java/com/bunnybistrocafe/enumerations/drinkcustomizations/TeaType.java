@@ -34,4 +34,9 @@ public enum TeaType {
         // if no match is found, throw exception
         throw new IllegalArgumentException();
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
