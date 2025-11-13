@@ -36,4 +36,30 @@ public class Matcha extends Drink {
     public void setMilk(MilkType milk) {
         this.milk = milk;
     }
+
+    // *** OTHER ***
+    @Override
+    public String toString() {
+        final String spacing = "   ";
+        StringBuilder sb = new StringBuilder(super.toString());
+
+        //milk
+        sb.append(String.format("%n\t%s", spacing))
+                .append(milk.getName());
+        if (milk.getPrice() > 0) {
+            sb.append(String.format(" ($%.2f)", milk.getPrice()));
+        }
+
+        return sb.toString();
+    }
+
+    @Override
+    public String toShortString() {
+        StringBuilder sb = new StringBuilder(super.toShortString());
+
+        //milk
+        sb.append(" | ").append(milk.getName());
+
+        return sb.toString();
+    }
 }

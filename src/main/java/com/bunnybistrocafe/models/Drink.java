@@ -74,6 +74,14 @@ public abstract class Drink implements MenuItem {
         return toppings.size();
     }
 
+    public double getToppingPrice() {
+        double price = 0;
+        for (Topping t : getToppings()) {
+            price += t.getPrice();
+        }
+        return price;
+    }
+
     public boolean hasPlushie() {
         return hasPlushie;
     }
@@ -128,9 +136,7 @@ public abstract class Drink implements MenuItem {
     protected double calculateSharedPrice() {
         double sharedPrice = size.getPrice() + type.getPrice() + sweetener.getPrice();
 
-        for (Topping t : getToppings()) {
-            sharedPrice += t.getPrice();
-        }
+        sharedPrice += getToppingPrice();
 
         if (hasPlushie()) {
             sharedPrice += getPlushiePrice();
@@ -139,12 +145,71 @@ public abstract class Drink implements MenuItem {
         return sharedPrice;
     }
 
+    /**
+     * String for receipt
+     * @return
+     */
     @Override
     public String toString() {
+        final String spacing = "   ";
+
         StringBuilder sb = new StringBuilder();
 
         //size
-        sb.append(size.getName());
+        String firstLine = spacing + size.getAbbreviation();
+
+        //iced or hot
+        if (isIced) {
+            firstLine = firstLine + " Iced " + type.getName();
+        } else {
+            firstLine = firstLine + " Hot " + type.getName();
+        }
+
+        //append firstLine (size, isIced, type) w/ spacing, then append price
+        sb.append(String.format("%-39s$%.2f",
+                firstLine, getPrice())
+        );
+
+        //sweetness level & sweetener
+        sb.append(String.format("%n\t%s", spacing))
+                .append((int) (sweetnessLevel * 100)).append("% ")
+                .append(sweetener.getName());
+        if (sweetener.getPrice() > 0) {
+            sb.append(String.format(" ($%.2f)", sweetener.getPrice()));
+        }
+
+        //ice level
+        if (isIced) {
+            sb.append(String.format("%n\t%s", spacing))
+                    .append((int) (iceLevel * 100)).append("% Ice");
+        }
+
+        //toppings
+        if (!toppings.isEmpty()) {
+            sb.append(String.format("%n\t%s", spacing));
+            for (int i = 0; i < toppings.size(); ++i) {
+                sb.append(toppings.get(i).getName());
+                if (i != toppings.size() - 1) {
+                    sb.append(", ");
+                }
+            }
+            sb.append(String.format(" ($%.2f)", getToppingPrice()));
+        }
+
+        //plushie
+        if (hasPlushie) {
+            sb.append(String.format("%n\t%sPlushie Cup Upgrade ($%.2f)",
+                    spacing, getPlushiePrice()));
+        }
+
+        return sb.toString();
+    }
+
+    public String toShortString() {
+        StringBuilder sb = new StringBuilder();
+
+        //size
+        sb.append(size.getAbbreviation());
 
         //iced or hot
         if (isIced) {
@@ -153,28 +218,34 @@ public abstract class Drink implements MenuItem {
             sb.append(" Hot ");
         }
 
-        //drink type & sweetness
-        sb.append(type.getName())
-                .append("\n").append((int) sweetnessLevel * 100)
-                .append("% ").append(sweetener.getName()).append("\n");
+        //type
+        sb.append(type.getName());
+
+        //sweetness level & sweetener
+        sb.append(" | ")
+                .append((int) (sweetnessLevel * 100)).append("% ")
+                .append(sweetener.getName());
 
         //ice level
         if (isIced) {
-            sb.append((int) iceLevel * 100).append("% Ice");
+            sb.append(" | ")
+                    .append((int) (iceLevel * 100)).append("% Ice");
         }
 
         //toppings
-        sb.append("\nToppings: ");
-        for (int i = 0; i < toppings.size(); ++i) {
-            sb.append(toppings.get(i).getName());
-            if (i != toppings.size() - 1) {
-                sb.append(", ");
+        if (!toppings.isEmpty()) {
+            sb.append(" | ");
+            for (int i = 0; i < toppings.size(); ++i) {
+                sb.append(toppings.get(i).getName());
+                if (i != toppings.size() - 1) {
+                    sb.append(", ");
+                }
             }
         }
 
         //plushie
         if (hasPlushie) {
-            sb.append("\nPlushie Cup Upgrade");
+            sb.append(" | ").append("Plushie Upgrade");
         }
 
         return sb.toString();

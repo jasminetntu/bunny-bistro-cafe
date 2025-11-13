@@ -34,16 +34,17 @@ public class Coffee extends Drink {
         return Collections.unmodifiableList(flavors);
     }
 
+    public double getFlavorPrice() {
+        double price = 0;
+        if (!flavors.isEmpty()) { //add constant flavor price
+            price += flavors.size() * flavors.get(0).getPrice();
+        }
+        return price;
+    }
+
     @Override
     public double getPrice() {
-        double totalPrice = calculateSharedPrice();
-        totalPrice += milk.getPrice();
-
-        if (!flavors.isEmpty()) { //add constant flavor price
-            totalPrice += flavors.size() * flavors.get(0).getPrice();
-        }
-
-        return totalPrice;
+        return calculateSharedPrice() + milk.getPrice() + getFlavorPrice();
     }
 
     // *** SETTERS ***
@@ -62,6 +63,55 @@ public class Coffee extends Drink {
 
     public boolean removeFlavor(CoffeeFlavor flavor) {
         return flavors.remove(flavor);
+    }
+
+    // *** OTHER ***
+    @Override
+    public String toString() {
+        final String spacing = "   ";
+        StringBuilder sb = new StringBuilder(super.toString());
+
+        //flavors
+        if (!flavors.isEmpty()) {
+            sb.append(String.format("%n\t%s", spacing));
+            for (int i = 0; i < flavors.size(); ++i) {
+                sb.append(flavors.get(i).getName());
+                if (i != flavors.size() - 1) {
+                    sb.append(", ");
+                }
+            }
+            sb.append(String.format(" ($%.2f)", getFlavorPrice()));
+        }
+
+        //milk
+        sb.append(String.format("%n\t%s", spacing))
+                .append(milk.getName());
+        if (milk.getPrice() > 0) {
+            sb.append(String.format(" ($%.2f)", milk.getPrice()));
+        }
+
+        return sb.toString();
+    }
+
+    @Override
+    public String toShortString() {
+        StringBuilder sb = new StringBuilder(super.toShortString());
+
+        //flavors
+        if (!flavors.isEmpty()) {
+            sb.append(" | ");
+            for (int i = 0; i < flavors.size(); ++i) {
+                sb.append(flavors.get(i).getName());
+                if (i != flavors.size() - 1) {
+                    sb.append(", ");
+                }
+            }
+        }
+
+        //milk
+        sb.append(" | ") .append(milk.getName());
+
+        return sb.toString();
     }
 
 }
