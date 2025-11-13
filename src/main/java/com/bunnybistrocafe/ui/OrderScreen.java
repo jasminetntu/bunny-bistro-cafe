@@ -47,11 +47,11 @@ public class OrderScreen implements Screen {
                             es.displayScreen();
                         }
                         case VIEW_ORDER_SUMMARY -> {
-                            //tba
+                            //todo
                         }
                         case CHECKOUT -> {
-                            CheckoutScreen cs = new CheckoutScreen();
-                            cs.displayScreen(scnr, orderManager);
+                            CheckoutScreen cs = new CheckoutScreen(scnr, orderManager);
+                            cs.displayScreen();
                         }
                     }
                 } catch (NumberFormatException e) {

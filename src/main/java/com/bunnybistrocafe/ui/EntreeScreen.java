@@ -41,5 +41,3 @@ public class EntreeScreen implements Screen {
         }
     }
 }
-
-}
