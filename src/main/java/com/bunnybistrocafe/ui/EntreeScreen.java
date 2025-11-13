@@ -27,15 +27,27 @@ public class EntreeScreen implements Screen {
 
             // go back to previous screen if R
             if (ActionOption.RETURN.getAbbreviation().equalsIgnoreCase(input)) {
+                try {
+                    UserInterface.loadingBar("⮐ Returning to order...");
+                } catch (InterruptedException e) {
+                    System.out.println("❌ Error encountered: Interrupted exception.");
+                }
                 isRunning = false;
             }
             else { // compare w pastry options
                 try {
                     entreeChoice = Entree.fromNum(Integer.parseInt(input));
+                    boolean success = orderManager.addItemToOrder(entreeChoice);
 
-                    //todo: add to order here
+                    if (success) {
+                        System.out.println(entreeChoice.getName() + " was added to your order.");
+                    } else {
+                        System.out.println("Something went wrong when adding to order.");
+                    }
+
+                    UserInterface.waitForKey(scnr);
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Invalid input. Must be N or X.");
+                    System.out.println("Invalid input. Must be 1-4 or R.");
                 }
             }
         }

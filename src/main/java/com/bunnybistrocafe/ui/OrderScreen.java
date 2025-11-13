@@ -27,6 +27,11 @@ public class OrderScreen implements Screen {
 
             // go back to previous screen if R
             if (ActionOption.RETURN.getAbbreviation().equalsIgnoreCase(input)) {
+                try {
+                    UserInterface.loadingBar("🅧 Cancelling order & returning to home...");
+                } catch (InterruptedException e) {
+                    System.out.println("❌ Error encountered: Interrupted exception.");
+                }
                 isRunning = false;
             }
             else { // compare w order options
@@ -35,29 +40,52 @@ public class OrderScreen implements Screen {
 
                     switch (orderChoice) {
                         case ADD_DRINK -> {
+                            UserInterface.loadingBar("🍵 Loading drink menu...");
                             DrinkScreen ds = new DrinkScreen(scnr, orderManager);
                             ds.displayScreen();
                         }
                         case ADD_PASTRY -> {
+                            UserInterface.loadingBar("🍰 Loading pastry menu...");
                             PastryScreen ps = new PastryScreen(scnr, orderManager);
                             ps.displayScreen();
                         }
                         case ADD_ENTREE -> {
+                            UserInterface.loadingBar("🥗 Loading entree menu...");
                             EntreeScreen es = new EntreeScreen(scnr, orderManager);
                             es.displayScreen();
                         }
                         case VIEW_ORDER_SUMMARY -> {
-                            //todo
+                            UserInterface.loadingBar("✏️ Loading order summary...");
+                            if (orderManager.getNumItems() == 0) {
+                                System.out.println("Your order is empty.");
+                            } else {
+                                orderManager.viewOrder();
+                            }
+
+                            UserInterface.waitForKey(scnr);
                         }
                         case CHECKOUT -> {
-                            CheckoutScreen cs = new CheckoutScreen(scnr, orderManager);
-                            cs.displayScreen();
+                            UserInterface.loadingBar("🛍️ Loading Checkout...");
+                            if (orderManager.getNumItems() == 0) {
+                                System.out.println("Your order is empty. Must add at least 1 item before checking out.");
+                            } else {
+                                CheckoutScreen cs = new CheckoutScreen(scnr, orderManager);
+                                cs.displayScreen();
+
+                                if (cs.isBackToHome()) {
+                                    UserInterface.loadingBar("⮐ Confirming choice & returning to home...");
+                                    isRunning = false;
+                                }
+                            }
                         }
                     }
+
                 } catch (NumberFormatException e) {
-                    System.out.println("Input must be numeric.");
+                    System.out.println("❌ Input must be numeric.");
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Invalid input. Must be 1-5 or R.");
+                    System.out.println("❌ Invalid input. Must be 1-5 or R.");
+                } catch (InterruptedException e) {
+                    System.out.println("❌ Error encountered: Interrupted exception.");
                 }
             }
         }

@@ -29,6 +29,11 @@ public class DrinkScreen implements Screen {
 
             // go back to previous screen if R
             if (ActionOption.RETURN.getAbbreviation().equalsIgnoreCase(input)) {
+                try {
+                    UserInterface.loadingBar("⮐ Returning to order...");
+                } catch (InterruptedException e) {
+                    System.out.println("❌ Error encountered: Interrupted exception.");
+                }
                 isRunning = false;
             }
             else { // compare w drink options
@@ -38,19 +43,34 @@ public class DrinkScreen implements Screen {
                     switch (drinkChoice) {
                         case SIGNATURE -> {
                             System.out.println("Signatures TBA.");
+                            UserInterface.waitForKey(scnr);
+                            //todo
                         }
                         case SEASONAL -> {
                             System.out.println("Seasonals TBA.");
+                            UserInterface.waitForKey(scnr);
+                            //todo
                         }
                         case CUSTOM -> {
                             DrinkCustomizer drinkCustomizer = new DrinkCustomizer(scnr);
-                            orderManager.addItemToOrder(drinkCustomizer.customizeDrink());
+                            Drink drink = drinkCustomizer.customizeDrink();
+                            boolean success = orderManager.addItemToOrder(drink);
+
+                            if (success) {
+                                System.out.printf("%s %s was added to your order.%n",
+                                        drink.getSize().getName(), drink.getType().getName());
+                            } else {
+                                System.out.println("Something went wrong when adding to order.");
+                            }
+
+                            UserInterface.waitForKey(scnr);
                         }
                     }
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Invalid input. Must be N or X.");
+                    System.out.println("Invalid input. Must be 1-3 or R.");
                 }
-            }
-        }
-    }
+            } //end else
+        } //end while
+    } //end method
+
 }

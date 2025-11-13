@@ -25,6 +25,7 @@ public class HomeScreen implements Screen {
 
                 switch (homeChoice) {
                     case NEW_ORDER -> {
+                        UserInterface.loadingBar("🔖 Loading New Order...");
                         OrderScreen os = new OrderScreen(scnr);
                         os.displayScreen();
                     }
@@ -34,7 +35,9 @@ public class HomeScreen implements Screen {
                 }
             }
             catch (IllegalArgumentException e) {
-                System.out.println("Invalid input. Must be N or X.");
+                System.out.println("❌ Invalid input. Must be N or X.");
+            } catch (InterruptedException e) {
+                System.out.println("❌ Error encountered: Interrupted exception.");
             }
         }
     }

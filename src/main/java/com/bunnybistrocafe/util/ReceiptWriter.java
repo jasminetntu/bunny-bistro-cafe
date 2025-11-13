@@ -55,7 +55,7 @@ public class ReceiptWriter {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             formatter = DateTimeFormatter.ofPattern("MM dd, yyyy | hh:mm:ss");
-            bw.write("Date & Time: " + formatter.format(dateTime) + "\n");
+            bw.write("Date & Time: " + formatter.format(dateTime) + "\n\n");
             bw.write(getReceipt(order));
         }
     }

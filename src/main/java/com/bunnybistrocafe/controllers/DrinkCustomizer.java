@@ -371,7 +371,7 @@ public class DrinkCustomizer {
         while (!valid) {
             toppings.clear(); // reset arraylist
 
-            System.out.print("> Enter flavor(s): ");
+            System.out.print("> Enter topping(s): ");
             String input = scnr.nextLine().trim();
 
             //return empty arraylist if skip

@@ -9,10 +9,16 @@ import java.util.Scanner;
 public class CheckoutScreen implements Screen {
     private final Scanner scnr;
     private final OrderManager orderManager;
+    private boolean backToHome;
 
     public CheckoutScreen(Scanner scnr, OrderManager orderManager) {
         this.scnr = scnr;
         this.orderManager = orderManager;
+        this.backToHome = true;
+    }
+
+    public boolean isBackToHome() {
+        return backToHome;
     }
 
     @Override
@@ -20,23 +26,26 @@ public class CheckoutScreen implements Screen {
         boolean isRunning = true;
         ActionOption checkoutChoice;
 
-        while (isRunning) {
-            UserInterface.printCheckoutMenu();
+        orderManager.printReceipt();
+        UserInterface.printCheckoutMenu();
 
+        while (isRunning) {
             try {
                 checkoutChoice = ActionOption.fromAbbreviation(scnr.nextLine());
 
                 switch (checkoutChoice) {
                     case CONFIRM -> {
-                        //todo
+                        orderManager.checkout();
                     }
                     case CANCEL -> {
-                        //todo
+                        orderManager.cancelOrder();
                     }
                     case RETURN -> {
-                        isRunning = false;
+                        this.backToHome = false;
                     }
                 }
+
+                isRunning = false;
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid input. Must be N or X.");
             }

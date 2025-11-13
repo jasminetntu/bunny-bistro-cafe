@@ -1,6 +1,35 @@
 package com.bunnybistrocafe.util;
 
+import java.util.Scanner;
+
 public class UserInterface {
+    // *** TOOLS ***
+    /**
+     * Waits for user to press enter for better menu flow.
+     *
+     * @param scnr Scanner object
+     */
+    public static void waitForKey(Scanner scnr) {
+        System.out.print("\n> Press ENTER to continue...");
+        scnr.nextLine();
+    }
+
+    /**
+     * Prints a 1000 ms (1.0 s) loading bar.
+     * @param loadingMessage the message to print before loading bar
+     * @throws InterruptedException if sleep is interrupted
+     */
+    public static void loadingBar(String loadingMessage) throws InterruptedException {
+        System.out.println("\n⊹ ࣪ ˖ " + loadingMessage);
+
+        for (int i = 0; i < 10; ++i) {
+            Thread.sleep(100);
+            System.out.print("▒▒▒");
+        }
+        System.out.println();
+        Thread.sleep(200);
+    }
+
     // *** MENUS ***
     public static void printHomeMenu() {
         System.out.print("""
@@ -100,10 +129,6 @@ public class UserInterface {
 
     public static void printCheckoutMenu() {
         System.out.print("""
-                
-                   ∩_∩
-                 („• •„)
-                •··U U··················•·······················•
                                     Checkout 🛍️
                 •·······················•·······················•
                     (Y) ✅ Confirm order
