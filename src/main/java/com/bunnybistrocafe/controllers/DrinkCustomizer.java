@@ -143,12 +143,22 @@ public class DrinkCustomizer {
             teaFlavors.clear(); // reset arraylist
 
             System.out.print("> Enter flavor(s): ");
-            String[] flavorNumbers = scnr.nextLine().trim().split(",");
+            String input = scnr.nextLine().trim();
+
+            //return empty arraylist if skip
+            if (input.isEmpty()) {
+                System.out.println("No flavors added.");
+                return teaFlavors;
+            }
+
+            //otherwise, continue with split
+            String[] flavorNumbers = input.split(",");
             valid = true; //assume input is valid
 
             // error if user inputs more than max allowed
             if (flavorNumbers.length > 3) {
                 System.out.println("You cannot have more than 3 flavors. Please try again.");
+                valid = false;
             }
             else {
                 // iterate through each flavor
@@ -208,16 +218,26 @@ public class DrinkCustomizer {
 
         UserInterface.printCoffeeFlavorOptions();
 
+
         while (!valid) {
             coffeeFlavors.clear(); // reset arraylist
 
             System.out.print("> Enter flavor(s): ");
-            String[] flavorAbbrevs = scnr.nextLine().trim().split(",");
+            String input = scnr.nextLine().trim();
+
+            //return empty arraylist if skip
+            if (input.isEmpty()) {
+                System.out.println("No flavors added.");
+                return coffeeFlavors;
+            }
+
+            //otherwise, continue with split
+            String[] flavorAbbrevs = input.split(",");
             valid = true; //assume input is valid
 
-            // error if user inputs more than max allowed
-            if (flavorAbbrevs.length > 3) {
-                System.out.println("You cannot have more than 3 flavors. Please try again.");
+            if (flavorAbbrevs.length > 2) { // error if user inputs more than max allowed
+                System.out.println("You cannot have more than 2 flavors. Please try again.");
+                valid = false;
             }
             else {
                 // iterate through each flavor
@@ -346,18 +366,27 @@ public class DrinkCustomizer {
         ArrayList<Topping> toppings = new ArrayList<>();;
         boolean valid = false;
 
-        UserInterface.printTeaFlavorOptions();
+        UserInterface.printToppingOptions();
 
         while (!valid) {
             toppings.clear(); // reset arraylist
 
             System.out.print("> Enter flavor(s): ");
-            String[] toppingNumbers = scnr.nextLine().trim().split(",");
+            String input = scnr.nextLine().trim();
+
+            //return empty arraylist if skip
+            if (input.isEmpty()) {
+                System.out.println("No toppings added.");
+                return toppings;
+            }
+
+            //otherwise, continue with split
+            String[] toppingNumbers = input.split(",");
             valid = true; //assume input is valid
 
-            // error if user inputs more than max allowed
-            if (toppingNumbers.length > 3) {
+            if (toppingNumbers.length > 3) { // error if user inputs more than max allowed
                 System.out.println("You cannot have more than 5 toppings. Please try again.");
+                valid = false;
             }
             else {
                 // iterate through each flavor

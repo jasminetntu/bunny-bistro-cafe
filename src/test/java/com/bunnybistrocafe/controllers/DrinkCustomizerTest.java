@@ -23,7 +23,7 @@ class DrinkCustomizerTest {
                 "100",    // sweetness -> 100%, 1
                 "100",    // ice -> 100%, 1
                 "W",      // milk type -> whole
-                "1",       // topping -> boba
+                "",       // topping -> none
                 "N"       // plushie -> no
         ) + "\n";
 
@@ -42,7 +42,7 @@ class DrinkCustomizerTest {
         assertEquals(1.0, drink.getSweetnessLevel());
         assertEquals(1.0, drink.getIceLevel());
         assertEquals(MilkType.WHOLE, ((Matcha) drink).getMilk());
-        assertEquals(1, drink.getToppings().size());
+        assertEquals(0, drink.getToppings().size());
         assertFalse(drink.hasPlushie());
     }
 

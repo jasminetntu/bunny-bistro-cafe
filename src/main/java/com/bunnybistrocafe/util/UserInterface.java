@@ -289,10 +289,10 @@ public class UserInterface {
                 ·                                    (5 max)                                    ·
                 •···················•···················•···················•···················•
                 · Regular Toppings (+$0.75 each)        ·   Premium Toppings (+$1.00 each)      ·
-                ·   (1)  Boba/Tapioca Pearls            ·       11) Strawberry                  ·
-                ·   (2)  Crystal Boba                   ·       12) Strawberry                  ·
-                ·   (3)  Aloe Vera                      ·       13) Strawberry                  ·
-                ·   (4)  Grass Jelly                    ·       14) Strawberry                  ·
+                ·   (1)  Boba/Tapioca Pearls            ·       11) Cream Top                   ·
+                ·   (2)  Crystal Boba                   ·       12) Taro Chunks                 ·
+                ·   (3)  Aloe Vera                      ·       13) Red Bean Chunks             ·
+                ·   (4)  Grass Jelly                    ·       14) Creme Brulee                ·
                 ·   (5)  Lychee Jelly                   ·                                       ·
                 ·   (6)  Strawberry Bits                ·                                       ·
                 ·   (7)  Mango Chunks                   ·                                       ·
