@@ -42,7 +42,7 @@ public class DrinkScreen implements Screen {
                             System.out.println("Seasonals TBA.");
                         }
                         case CUSTOM -> {
-                            DrinkCustomizer drinkCustomizer = new DrinkCustomizer();
+                            DrinkCustomizer drinkCustomizer = new DrinkCustomizer(scnr);
                         }
                     }
                 } catch (IllegalArgumentException e) {

@@ -159,8 +159,7 @@ public class UserInterface {
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printTeaFlavorOptions() {
@@ -182,8 +181,7 @@ public class UserInterface {
                 · *Separate flavor numbers w/ comma.    ·
                 · *Leave blank & enter to skip.         ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printIcedOrHotOptions() {
@@ -196,8 +194,7 @@ public class UserInterface {
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printCoffeeFlavorOptions() {
@@ -215,8 +212,7 @@ public class UserInterface {
                 · *Separate flavor numbers w/ comma.    ·
                 · *Leave blank & enter to skip.         ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printSweetenerTypeOptions() {
@@ -230,8 +226,7 @@ public class UserInterface {
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printSweetnessLevelOptions() {
@@ -250,8 +245,7 @@ public class UserInterface {
                 ·                                       ·
                 · *Don't include '%' in choice.         ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printIceLevelOptions() {
@@ -270,8 +264,7 @@ public class UserInterface {
                 ·                                       ·
                 · *Don't include '%' in choice.         ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printMilkTypeOptions() {
@@ -286,8 +279,7 @@ public class UserInterface {
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printToppingOptions() {
@@ -313,8 +305,20 @@ public class UserInterface {
                 · *Separate topping numbers w/ comma.                                           ·
                 · *Leave blank & enter to skip.                                                 ·
                 •···················•···················•···················•···················•
-                
-                > Enter choice:\s""");
+                """);
+    }
+
+    public static void printPlushieOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·   SPECIAL: Upgrade to a plushie cup?  ·
+                •···················•···················•
+                ·   (Y) Yes                             ·
+                ·   (N) No                              ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                •···················•···················•
+                """);
     }
 
 }

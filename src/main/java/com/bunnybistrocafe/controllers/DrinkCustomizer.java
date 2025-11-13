@@ -203,30 +203,211 @@ public class DrinkCustomizer {
     }
 
     private ArrayList<CoffeeFlavor> getCoffeeFlavors() {
+        ArrayList<CoffeeFlavor> coffeeFlavors = new ArrayList<>();;
+        boolean valid = false;
 
+        UserInterface.printCoffeeFlavorOptions();
+
+        while (!valid) {
+            coffeeFlavors.clear(); // reset arraylist
+
+            System.out.print("> Enter flavor(s): ");
+            String[] flavorAbbrevs = scnr.nextLine().trim().split(",");
+            valid = true; //assume input is valid
+
+            // error if user inputs more than max allowed
+            if (flavorAbbrevs.length > 3) {
+                System.out.println("You cannot have more than 3 flavors. Please try again.");
+            }
+            else {
+                // iterate through each flavor
+                for (String abbrev : flavorAbbrevs) {
+                    try {
+                        // add each flavor to arraylist if valid
+                        coffeeFlavors.add(CoffeeFlavor.fromAbbreviation(abbrev));
+                    }
+                    catch (IllegalArgumentException e) { //invalid abbrev
+                        System.out.println("Not a valid flavor (M, C, V). Please try again.");
+                        valid = false;
+                    }
+
+                    // if any invalid input, clear list -> ensures any invalid num means entire input is invalid
+                    if (!valid) {
+                        coffeeFlavors.clear();
+                    }
+                } // end for
+            } // end else
+        } //end while
+
+        return coffeeFlavors;
     }
 
     private SweetenerType getSweetenerType() {
+        SweetenerType sweetener = null;
+        boolean valid = false;
 
+        UserInterface.printSweetenerTypeOptions();
+
+        while (!valid) {
+            System.out.print("> Enter choice: ");
+            try {
+                sweetener = SweetenerType.fromAbbreviation(scnr.nextLine());
+                valid = true;
+            }
+            catch (IllegalArgumentException e) {
+                System.out.println("Not a valid sweetener (C, S, H). Please try again.");
+            }
+        }
+
+        return sweetener;
     }
 
     private double getSweetnessLevel() {
+        double sweetnessLevel = 1;
+        boolean valid = false;
 
+        UserInterface.printSweetnessLevelOptions();
+
+        while (!valid) {
+            System.out.print("> Enter choice: ");
+            try {
+                sweetnessLevel = Double.parseDouble(scnr.nextLine());
+
+                for (int level = 0; level <= 125; level += 25) {
+                    if (sweetnessLevel == level) {
+                        sweetnessLevel /= 100;
+                        valid = true;
+                    }
+                }
+
+                if (!valid) {
+                    System.out.println("Must be one of the 5 integers. Please try again.");
+                }
+            }
+            catch (IllegalArgumentException e) {
+                System.out.println("Must be an integer (0-125). Please try again.");
+            }
+        }
+
+        return sweetnessLevel;
     }
 
     private double getIceLevel() {
+        double iceLevel = 1;
+        boolean valid = false;
 
+        UserInterface.printIceLevelOptions();
+
+        while (!valid) {
+            System.out.print("> Enter choice: ");
+            try {
+                iceLevel = Double.parseDouble(scnr.nextLine());
+
+                for (int level = 0; level <= 125; level += 25) {
+                    if (iceLevel == level) {
+                        iceLevel /= 100;
+                        valid = true;
+                    }
+                }
+
+                if (!valid) {
+                    System.out.println("Must be one of the 5 integers. Please try again.");
+                }
+            }
+            catch (IllegalArgumentException e) {
+                System.out.println("Must be an integer (0-125). Please try again.");
+            }
+        }
+
+        return iceLevel;
     }
 
     private MilkType getMilkType() {
+        MilkType milkType = null;
+        boolean valid = false;
 
+        UserInterface.printMilkTypeOptions();
+
+        while (!valid) {
+            System.out.print("> Enter choice: ");
+            try {
+                milkType = MilkType.fromAbbreviation(scnr.nextLine());
+                valid = true;
+            }
+            catch (IllegalArgumentException e) {
+                System.out.println("Not a valid milk (W, N, O, A). Please try again.");
+            }
+        }
+
+        return milkType;
     }
 
     private ArrayList<Topping> getToppings() {
+        ArrayList<Topping> toppings = new ArrayList<>();;
+        boolean valid = false;
 
+        UserInterface.printTeaFlavorOptions();
+
+        while (!valid) {
+            toppings.clear(); // reset arraylist
+
+            System.out.print("> Enter flavor(s): ");
+            String[] toppingNumbers = scnr.nextLine().trim().split(",");
+            valid = true; //assume input is valid
+
+            // error if user inputs more than max allowed
+            if (toppingNumbers.length > 3) {
+                System.out.println("You cannot have more than 5 toppings. Please try again.");
+            }
+            else {
+                // iterate through each flavor
+                for (String num : toppingNumbers) {
+                    try {
+                        // add each flavor to arraylist if valid
+                        toppings.add(Topping.fromNum(Integer.parseInt(num.trim())));
+                    }
+                    catch (NumberFormatException e) { // non-integer input
+                        System.out.println("Input must be an integer.");
+                        valid = false;
+                    }
+                    catch (IllegalArgumentException e) { //integer out of bounds
+                        System.out.println("Not a valid topping number (1-14). Please try again.");
+                        valid = false;
+                    }
+
+                    // if any invalid input, clear list -> ensures any invalid num means entire input is invalid
+                    if (!valid) {
+                        toppings.clear();
+                    }
+                } // end for
+            } // end else
+        } //end while
+
+        return toppings;
     }
 
     private boolean getHasPlushie() {
+        boolean hasPlushie = true;
+        boolean valid = false;
 
+        UserInterface.printPlushieOptions();
+
+        while (!valid) {
+            System.out.print("> Enter choice: ");
+            String choice = scnr.nextLine().trim();
+
+            if (choice.equalsIgnoreCase("Y")) {
+                valid = true;
+            }
+            else if (choice.equalsIgnoreCase("N")) {
+                hasPlushie = false;
+                valid = true;
+            }
+            else {
+                System.out.println("Must be Y or N. Please try again.");
+            }
+        }
+
+        return hasPlushie;
     }
 }
