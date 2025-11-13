@@ -4,6 +4,7 @@ import com.bunnybistrocafe.controllers.DrinkCustomizer;
 import com.bunnybistrocafe.controllers.OrderManager;
 import com.bunnybistrocafe.enumerations.DrinkOption;
 import com.bunnybistrocafe.enumerations.ActionOption;
+import com.bunnybistrocafe.models.Drink;
 import com.bunnybistrocafe.util.UserInterface;
 
 import java.util.Scanner;
@@ -43,6 +44,7 @@ public class DrinkScreen implements Screen {
                         }
                         case CUSTOM -> {
                             DrinkCustomizer drinkCustomizer = new DrinkCustomizer(scnr);
+                            orderManager.addItemToOrder(drinkCustomizer.customizeDrink());
                         }
                     }
                 } catch (IllegalArgumentException e) {

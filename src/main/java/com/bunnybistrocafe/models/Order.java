@@ -56,12 +56,12 @@ public class Order {
     }
 
     // *** SETTERS ***
-    public void addItem(MenuItem item) {
-        items.add(item);
+    public boolean addItem(MenuItem item) {
+        return items.add(item);
     }
 
-    public void removeItem(MenuItem item) {
-        items.remove(item);
+    public boolean removeItem(MenuItem item) {
+        return items.remove(item);
     }
 
     // *** OTHER ***
