@@ -21,6 +21,10 @@ public enum Pastry implements MenuItem {
         return num;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public double getPrice() {
         return price;
@@ -40,7 +44,17 @@ public enum Pastry implements MenuItem {
     }
 
     @Override
+    public int getCategoryOrder() {
+        return 1;
+    }
+
+    @Override
     public String toString() {
+        return String.format("   %-36s$%.2f", name, price);
+    }
+
+    @Override
+    public String toShortString() {
         return name;
     }
 }

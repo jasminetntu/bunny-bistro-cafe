@@ -145,6 +145,11 @@ public abstract class Drink implements MenuItem {
         return sharedPrice;
     }
 
+    @Override
+    public int getCategoryOrder() {
+        return 0;
+    }
+
     /**
      * String for receipt
      * @return

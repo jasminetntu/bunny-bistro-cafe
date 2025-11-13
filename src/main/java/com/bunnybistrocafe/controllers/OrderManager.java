@@ -19,9 +19,13 @@ public class OrderManager {
         order = new Order();
     }
 
+    public int getNumItems() {
+        return order.getNumItems();
+    }
+
     public void printReceipt() {
         ReceiptWriter rw = new ReceiptWriter();
-        System.out.println(rw.getReceipt(order));
+        System.out.println("\n" + rw.getReceipt(order));
     }
 
     public void checkout() {
@@ -42,13 +46,15 @@ public class OrderManager {
         return order.removeItem(item);
     }
 
-    public String viewOrder() {
+    public void viewOrder() {
         String orderStr = order.getItems().stream()
                 .map(MenuItem::toShortString) // convert each item to its short string
                 .collect(Collectors.joining("\n> "));
 
         orderStr = "> " + orderStr; //add missing bullet pt to beginning
-
-        return orderStr;
+        System.out.println("\n•·······················•·······················•" +
+                "\nOrder Overview:\n" +
+                orderStr +
+                "\n•·······················•·······················•");
     }
 }

@@ -19,17 +19,13 @@ public class Order {
     // *** GETTERS ***
 
     /**
-     * Returns item list sorted by diff menu items (drinks, pastries, entrees)
+     * Returns item list sorted by type of menu items
+     * Order: Drinks -> pastries -> entrees
      * @return
      */
     public List<MenuItem> getItems() {
         return items.stream()
-                .sorted(new Comparator<MenuItem>() {
-                    @Override
-                    public int compare(MenuItem o1, MenuItem o2) {
-                        return o1.getClass().getName().compareTo(o2.getClass().getName());
-                    }
-                })
+                .sorted(Comparator.comparingInt(MenuItem::getCategoryOrder))
                 .toList();
     }
 
