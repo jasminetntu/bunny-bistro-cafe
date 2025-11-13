@@ -21,7 +21,7 @@ public class CheckoutScreen implements Screen {
         ActionOption checkoutChoice;
 
         while (isRunning) {
-            UserInterface.printHomeMenu();
+            UserInterface.printCheckoutMenu();
 
             try {
                 checkoutChoice = ActionOption.fromAbbreviation(scnr.nextLine());

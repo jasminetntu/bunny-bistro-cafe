@@ -22,7 +22,7 @@ public class PastryScreen implements Screen {
         Pastry pastryChoice;
 
         while (isRunning) {
-            UserInterface.printHomeMenu();
+            UserInterface.printPastryMenu();
             String input = scnr.nextLine().trim();
 
             // go back to previous screen if R

@@ -22,7 +22,7 @@ public class OrderScreen implements Screen {
         OrderOption orderChoice;
 
         while (isRunning) {
-            UserInterface.printHomeMenu();
+            UserInterface.printOrderMenu();
             String input = scnr.nextLine().trim();
 
             // go back to previous screen if R

@@ -24,7 +24,7 @@ public class DrinkScreen implements Screen {
         DrinkOption drinkChoice;
 
         while (isRunning) {
-            UserInterface.printHomeMenu();
+            UserInterface.printDrinkMenu();
             String input = scnr.nextLine().trim();
 
             // go back to previous screen if R

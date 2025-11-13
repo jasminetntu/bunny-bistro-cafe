@@ -22,7 +22,7 @@ public class EntreeScreen implements Screen {
         Entree entreeChoice;
 
         while (isRunning) {
-            UserInterface.printHomeMenu();
+            UserInterface.printEntreeMenu();
             String input = scnr.nextLine().trim();
 
             // go back to previous screen if R
