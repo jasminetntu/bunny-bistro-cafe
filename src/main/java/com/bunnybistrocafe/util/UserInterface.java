@@ -118,7 +118,7 @@ public class UserInterface {
 
     // *** DRINK CUSTOMIZATION OPTIONS ***
     public static void printSizeOptions() {
-        System.out.print("""
+        System.out.println("""
                 •···················•···················•
                 ·              Choose Size              ·
                 •···················•···················•
@@ -128,8 +128,7 @@ public class UserInterface {
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printDrinkTypeOptions() {
@@ -144,8 +143,7 @@ public class UserInterface {
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•
-                
-                > Enter choice:\s""");
+                """);
     }
 
     public static void printTeaTypeOptions() {
