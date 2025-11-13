@@ -1,7 +1,7 @@
 package com.bunnybistrocafe.enumerations.drinkcustomizations;
 
 public enum TeaType {
-    GREEN ("G", "Green Tea"), BLACK ("B", "Black Tea"), OOLONG ("O", "Oolong Tea"),
+    BLACK ("B", "Black Tea"), GREEN ("G", "Green Tea"), OOLONG ("O", "Oolong Tea"),
     THAI ("T", "Thai Tea"), WHITE ("W", "White Tea");
 
     private final String abbreviation;

@@ -1,6 +1,11 @@
 package com.bunnybistrocafe.util;
 
+import com.bunnybistrocafe.enumerations.drinkcustomizations.*;
+
+import java.util.ArrayList;
+
 public class UserInterface {
+    // *** MENUS ***
     public static void printHomeMenu() {
         System.out.print("""
                    ∩_∩
@@ -110,4 +115,208 @@ public class UserInterface {
         System.out.print("""
                 Signature drinks TBA.""");
     }
+
+    // *** DRINK CUSTOMIZATION OPTIONS ***
+    public static void printSizeOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·              Choose Size              ·
+                •···················•···················•
+                ·   (S) Small                   $4.95   ·
+                ·   (M) Medium (default)        $5.95   ·
+                ·   (L) Large                   $6.95   ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printDrinkTypeOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·             Choose Drink              ·
+                •···················•···················•
+                ·   (M)  Matcha Latte          +$1.50   ·
+                ·   (C)  Caffe Latte           +$1.00   ·
+                ·   (MT) Milk Tea                       ·
+                ·   (T)  Tea                            ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printTeaTypeOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·              Choose Tea               ·
+                •···················•···················•
+                ·   (B) Black Tea                       ·
+                ·   (G) Green Tea                       ·
+                ·   (O) Oolong Tea                      ·
+                ·   (T) Thai Tea                        ·
+                ·   (W) White Tea                       ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printTeaFlavorOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·            Choose Flavor(s)           ·
+                ·        +$0.25 per flavor (3 max)      ·
+                •···················•···················•
+                ·   (1) Strawberry                      ·
+                ·   (2) Mango                           ·
+                ·   (3) Passionfruit                    ·
+                ·   (4) Peach                           ·
+                ·   (5) Lychee                          ·
+                ·   (6) Watermelon                      ·
+                ·   (7) Wintermelon                     ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                ·                                       ·
+                · *Separate flavor numbers w/ comma.    ·
+                · *Leave blank & enter to skip.         ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printIcedOrHotOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·              Iced or Hot?             ·
+                •···················•···················•
+                ·   (I) Iced (default)                  ·
+                ·   (H) Hot                             ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printCoffeeFlavorOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·            Choose Flavor(s)           ·
+                ·       +$0.25 per flavor (2 max)       ·
+                •···················•···················•
+                ·   (M) Mocha                           ·
+                ·   (C) Caramel                         ·
+                ·   (V) Vanilla                         ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                ·                                       ·
+                · *Separate flavor numbers w/ comma.    ·
+                · *Leave blank & enter to skip.         ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printSweetenerTypeOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·            Choose Sweetener           ·
+                •···················•···················•
+                ·   (C) Cane Sugar (default)            ·
+                ·   (S) Stevia                          ·
+                ·   (H) Honey                  +$0.50   ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printSweetnessLevelOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·        Choose Sweetness Level         ·
+                •···················•···················•
+                ·   > 125%                              ·
+                ·   > 100% (default)                    ·
+                ·   > 75%                               ·
+                ·   > 50%                               ·
+                ·   > 25%                               ·
+                ·   > 0%                                ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                ·                                       ·
+                · *Don't include '%' in choice.         ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printIceLevelOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·            Choose Ice Level           ·
+                •···················•···················•
+                ·   > 125%                              ·
+                ·   > 100% (default)                    ·
+                ·   > 75%                               ·
+                ·   > 50%                               ·
+                ·   > 25%                               ·
+                ·   > 0%                                ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                ·                                       ·
+                · *Don't include '%' in choice.         ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printMilkTypeOptions() {
+        System.out.print("""
+                •···················•···················•
+                ·              Choose Milk              ·
+                •···················•···················•
+                ·   (W) Whole Milk (default)            ·
+                ·   (N) Non-dairy Creamer               ·
+                ·   (O) Oat Milk               +$0.50   ·
+                ·   (A) Almond Milk            +$0.50   ·
+                ·                                       ·
+                ·   (R) Return to order (cancel drink)  ·
+                •···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
+    public static void printToppingOptions() {
+        System.out.print("""
+                •···················•···················•···················•···················•
+                ·                               Choose Topping(s)                              ·
+                ·                                    (5 max)                                    ·
+                •···················•···················•···················•···················•
+                · Regular Toppings (+$0.75 each)        ·   Premium Toppings (+$1.00 each)      ·
+                ·   (1)  Boba/Tapioca Pearls            ·       11) Strawberry                  ·
+                ·   (2)  Crystal Boba                   ·       12) Strawberry                  ·
+                ·   (3)  Aloe Vera                      ·       13) Strawberry                  ·
+                ·   (4)  Grass Jelly                    ·       14) Strawberry                  ·
+                ·   (5)  Lychee Jelly                   ·                                       ·
+                ·   (6)  Strawberry Bits                ·                                       ·
+                ·   (7)  Mango Chunks                   ·                                       ·
+                ·   (8)  Lychee Bits                    ·                                       ·
+                ·   (9)  Peach Bits                     ·                                       ·
+                ·   (10) Watermelon Chunks              ·                                       ·
+                •···················•···················•···················•···················•
+                ·   (R) Return to order (cancel drink)                                          ·
+                ·                                                                               ·
+                · *Separate topping numbers w/ comma.                                           ·
+                · *Leave blank & enter to skip.                                                 ·
+                •···················•···················•···················•···················•
+                
+                > Enter choice:\s""");
+    }
+
 }

@@ -2,7 +2,7 @@ package com.bunnybistrocafe.enumerations.drinkcustomizations;
 
 public enum MilkType {
     WHOLE("W", "Whole Milk", 0.00), OAT("O", "Oat Milk", 0.50),
-    ALMOND("A", "Almond Milk", 0.50), NONDAIRY ("ND", "Non-dairy Creamer", 0.00);
+    ALMOND("A", "Almond Milk", 0.50), NONDAIRY ("N", "Non-dairy Creamer", 0.00);
 
     private final String abbreviation;
     private final String name;
