@@ -21,10 +21,6 @@ public enum Pastry implements MenuItem {
         return num;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public double getPrice() {
         return price;
@@ -41,5 +37,10 @@ public enum Pastry implements MenuItem {
 
         // if no match is found, throws exception
         throw new IllegalArgumentException();
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

@@ -1,11 +1,11 @@
 package com.bunnybistrocafe.models;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Order {
-    private List<MenuItem> items;
+    private final List<MenuItem> items;
 
     // *** CONSTRUCTORS ***
     public Order() {
@@ -17,8 +17,20 @@ public class Order {
     }
 
     // *** GETTERS ***
+
+    /**
+     * Returns item list sorted by diff menu items (drinks, pastries, entrees)
+     * @return
+     */
     public List<MenuItem> getItems() {
-        return Collections.unmodifiableList(items);
+        return items.stream()
+                .sorted(new Comparator<MenuItem>() {
+                    @Override
+                    public int compare(MenuItem o1, MenuItem o2) {
+                        return o1.getClass().getName().compareTo(o2.getClass().getName());
+                    }
+                })
+                .toList();
     }
 
     public int getNumItems() {
