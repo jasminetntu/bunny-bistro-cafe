@@ -3,9 +3,9 @@
 ---
 
 ## Info
-- Made using FigJam
-- [Link for more detailed view](https://www.figma.com/board/aMljwC9bzU1PiBnWt37XRX/Bunny-Bistro-Cafe---UML-Diagram?node-id=0-1&t=p7U9ibfjQDoIfgYQ-1)
-- Last updated 11/10
+- Made using FigJam.
+- Please use [this link](https://www.figma.com/board/aMljwC9bzU1PiBnWt37XRX/Bunny-Bistro-Cafe---UML-Diagram?node-id=0-1&t=p7U9ibfjQDoIfgYQ-1) for a more detailed & most updated view.
+- Screenshots updated 11/10.
 
 ---
 
