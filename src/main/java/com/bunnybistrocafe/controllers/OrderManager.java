@@ -5,7 +5,6 @@ import com.bunnybistrocafe.models.Order;
 import com.bunnybistrocafe.util.ReceiptWriter;
 
 import java.io.IOException;
-import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class OrderManager {

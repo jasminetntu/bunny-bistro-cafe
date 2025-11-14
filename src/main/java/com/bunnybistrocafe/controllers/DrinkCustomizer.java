@@ -116,7 +116,7 @@ public class DrinkCustomizer {
 
             // ice level
             if (isIced) {
-                iceLevel = getOptionalIceLevel(drink.getIceLevel());
+                iceLevel = getOptionalIceLevel();
             }
 
             // tea type
@@ -843,18 +843,17 @@ public class DrinkCustomizer {
     /**
      * Optional helper for customizing ice level with a default value.
      *
-     * @param defaultVal the ice level to keep if skipped
      * @return the selected ice level as a decimal
      * @throws RuntimeException if user cancels the input
      */
-    private double getOptionalIceLevel(double defaultVal) {
+    private double getOptionalIceLevel() {
         double iceLevel = 1;
         boolean valid = false;
 
         UserInterface.printIceLevelOptions();
 
         while (!valid) {
-            System.out.print("> Enter choice (or ENTER to keep " + (int) (defaultVal * 100) + "): ");
+            System.out.print("> Enter choice (or ENTER to keep 100%): ");
             String input = scnr.nextLine().trim();
 
             // cancel
@@ -864,26 +863,23 @@ public class DrinkCustomizer {
 
             // skip
             if (input.isEmpty()) {
-                return defaultVal;
+                return 1;
             }
 
             // customize
             try {
-                iceLevel = Double.parseDouble(input);
+                int intLevel = Integer.parseInt(input);
 
-                for (int level = 0; level <= 125; level += 25) {
-                    if (iceLevel == level) {
-                        iceLevel /= 100;
-                        valid = true;
-                    }
-                }
-
-                if (!valid) {
-                    System.out.println("Must be one of the 5 integers. Please try again.");
+                if (intLevel == 0 || intLevel == 25 || intLevel == 50 || intLevel == 75 || intLevel == 100 || intLevel == 125) {
+                    iceLevel = (double) intLevel / 100;
+                    System.out.println("Selected " + intLevel + "% ice.");
+                    valid = true;
+                } else {
+                    System.out.println("❌ Must be one of the 5 integers. Please try again.");
                 }
             }
             catch (IllegalArgumentException e) {
-                System.out.println("Must be an integer (0-125). Please try again.");
+                System.out.println("❌ Must be an integer (0-125). Please try again.");
             }
         }
 
