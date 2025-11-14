@@ -51,6 +51,10 @@ public abstract class Drink implements MenuItem {
         return type;
     }
 
+    public String getDisplayName() {
+        return type.getName(); // default: normal drink
+    }
+
     public SweetenerType getSweetener() {
         return sweetener;
     }
@@ -171,12 +175,8 @@ public abstract class Drink implements MenuItem {
             firstLine = firstLine + " Hot ";
         }
 
-        //custom or signature
-        if (signatureName == null) { //custom
-            firstLine = firstLine + type.getName();
-        } else { //signature
-            firstLine = firstLine + signatureName;
-        }
+        //custom or signature name
+        firstLine = firstLine + getDisplayName();
 
         //append firstLine (size, isIced, type) w/ spacing, then append price
         sb.append(String.format("%-39s$%.2f",
@@ -201,12 +201,12 @@ public abstract class Drink implements MenuItem {
         if (!toppings.isEmpty()) {
             sb.append(String.format("%n\t%s", spacing));
             for (int i = 0; i < toppings.size(); ++i) {
-                sb.append(toppings.get(i).getName());
-                if (i != toppings.size() - 1) {
-                    sb.append(", ");
+                sb.append(toppings.get(i).getName())
+                        .append(String.format(" ($%.2f)", toppings.get(i).getPrice()));
+                if (i < toppings.size() - 1) {
+                    sb.append("\n\t   ");
                 }
             }
-            sb.append(String.format(" ($%.2f)", getToppingPrice()));
         }
 
         //plushie
@@ -231,12 +231,8 @@ public abstract class Drink implements MenuItem {
             sb.append(" Hot ");
         }
 
-        //custom or signature
-        if (signatureName == null) { //custom
-            sb.append(type.getName());
-        } else { //signature
-            sb.append(signatureName);
-        }
+        //custom or signature name
+        sb.append(getDisplayName());
 
         //sweetness level & sweetener
         sb.append(" | ")
