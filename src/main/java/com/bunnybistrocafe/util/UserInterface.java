@@ -80,7 +80,7 @@ public class UserInterface {
                 
                     (R) Return to order
                 
-                > Enter choice (1-3, R):\s""");
+                > Enter choice (1-2, R):\s""");
     }
 
     public static void printPastryMenu() {
@@ -276,7 +276,7 @@ public class UserInterface {
                 •···················•···················•
                 ·           Choose Sweetener 🍭         ·
                 •···················•···················•
-                ·   (C)  🎋 Cane Sugar (default)        ·
+                ·   (C)  🎋 Cane Sugar                  ·
                 ·   (S)  🌱 Stevia                      ·
                 ·   (CM) 🥛 Condensed Milk              ·
                 ·   (H)  🍯 Honey              +$0.50   ·

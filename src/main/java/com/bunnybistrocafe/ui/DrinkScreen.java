@@ -50,7 +50,7 @@ public class DrinkScreen implements Screen {
                         }
                     }
                 } catch (IllegalArgumentException e) {
-                    System.out.println("❌ Invalid input. Must be 1-3 or R.");
+                    System.out.println("❌ Invalid input. Must be 1-2 or R.");
                 }
             } //end else
         } //end while

@@ -100,7 +100,7 @@ public class DrinkCustomizer {
             // basics
             DrinkSize size = getOptionalSize(drink.getSize());
             SweetenerType sweetener = getOptionalSweetenerType(drink.getSweetener());
-            double sweetnessLevel = getOptionalSweetnessLevel(drink.getSweetnessLevel());
+            double sweetnessLevel = getOptionalSweetnessLevel();
             ArrayList<Topping> toppings = getOptionalToppings(new ArrayList<>(drink.getToppings()));
 
             // initialize attributes
@@ -795,20 +795,19 @@ public class DrinkCustomizer {
     }
 
     /**
-     * Optional helper for customizing sweetness level with a default value.
+     * Optional helper for customizing sweetness level with a default value (100%).
      *
-     * @param defaultVal the sweetness level to keep if skipped
      * @return the selected sweetness level as a decimal
      * @throws RuntimeException if user cancels the input
      */
-    private double getOptionalSweetnessLevel(double defaultVal) {
+    private double getOptionalSweetnessLevel() {
         double sweetnessLevel = 1;
         boolean valid = false;
 
         UserInterface.printSweetnessLevelOptions();
 
         while (!valid) {
-            System.out.print("> Enter choice (or ENTER to keep " + (int) (defaultVal * 100) + "): ");
+            System.out.print("> Enter choice (or ENTER to keep 100%): ");
             String input = scnr.nextLine().trim();
 
             // cancel
@@ -818,26 +817,23 @@ public class DrinkCustomizer {
 
             // skip
             if (input.isEmpty()) {
-                return defaultVal;
+                return 1;
             }
 
             // customize
             try {
-                sweetnessLevel = Double.parseDouble(input);
+                int intLevel = Integer.parseInt(input);
 
-                for (int level = 0; level <= 125; level += 25) {
-                    if (sweetnessLevel == level) {
-                        sweetnessLevel /= 100;
-                        valid = true;
-                    }
-                }
-
-                if (!valid) {
-                    System.out.println("Must be one of the 5 integers. Please try again.");
+                if (intLevel == 0 || intLevel == 25 || intLevel == 50 || intLevel == 75 || intLevel == 100 || intLevel == 125) {
+                    sweetnessLevel = (double) intLevel / 100;
+                    System.out.println("Selected " + intLevel + "% sweetness.");
+                    valid = true;
+                } else {
+                    System.out.println("❌ Must be one of the 5 integers. Please try again.");
                 }
             }
             catch (IllegalArgumentException e) {
-                System.out.println("Must be an integer (0-125). Please try again.");
+                System.out.println("❌ Must be an integer (0-125). Please try again.");
             }
         }
 
@@ -1010,6 +1006,9 @@ public class DrinkCustomizer {
                     System.out.println("❌ Invalid input. Must be Y or N.");
                 } // end inner if
             } // end outer if
+            else {
+                validChoice = true;
+            }
         } // end outer while
 
         // *** ADD TOPPINGS ***
