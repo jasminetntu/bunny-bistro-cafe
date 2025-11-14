@@ -27,10 +27,10 @@ public class CheckoutScreen implements Screen {
         ActionOption checkoutChoice;
 
         orderManager.printReceipt();
-        UserInterface.printCheckoutMenu();
 
         while (isRunning) {
             try {
+                UserInterface.printCheckoutMenu();
                 checkoutChoice = ActionOption.fromAbbreviation(scnr.nextLine());
 
                 switch (checkoutChoice) {

@@ -128,6 +128,8 @@ public class UserInterface {
 
     public static void printCheckoutMenu() {
         System.out.print("""
+                
+                •·······················•·······················•
                                     Checkout 🛍️
                 •·······················•·······················•
                     (Y) ✅ Confirm order
@@ -140,28 +142,28 @@ public class UserInterface {
     public static void printSignatureDrinkMenu() {
         System.out.print("""
                 
-                •···················•···················•···················•···················•
-                ·                          Bunny Bistro Signatures 🐰                           ·
-                •···················•···················•···················•···················•
-                · 🍵 Matcha                             · ☕️ Coffee                             ·
-                ·   (1)  Matcha Latte                   ·       (6)  Vietnamese Coffee          ·
-                ·   (2)  Honey Matcha Latte             ·       (7)  Caffe Mocha                ·
-                ·   (3)  Strawberry Matcha              ·       (8)  Caffe Caramel              ·
-                ·   (4)  Mango Matcha                   ·       (9)  Caffe Vanilla              ·
-                ·   (5)  Matcha Cloud                   ·       (10) Caffe Cloud                ·
-                ·                                       ·                                       ·
-                · 🧋 Milk Tea                           · 🍓 Fruit Tea                          ·
-                ·   (11) Classic Milk Tea               ·       19) Berry Burrow                ·
-                ·   (12) Jasmine Milk Tea               ·       20) Mango Heaven                ·
-                ·   (13) Oolong Milk Tea                ·       21) Watermelon Lychee Bliss     ·
-                ·   (14) Thai Milk Tea                  ·       22) Peach Paradise              ·
-                ·   (15) Wintermelon Milk Tea           ·       23) Fruit Overload              ·
-                ·   (16) Peach Oolong Milk Tea          ·       24) Sunrise Orchard             ·
-                ·   (17) Strawberry Milk Tea            ·       25) Passionfruit Burst          ·
-                ·   (18) Mango Milk Tea                 ·       26) Dreamy Lychee               ·
-                •···················•···················•···················•···················•
-                ·   (R) Return to order                                                         ·
-                •···················•···················•···················•···················•
+                •·················•·················•·················•·················•·················•
+                ·                                Bunny Bistro Signatures 🐰                               ·
+                •·················•·················•·················•·················•·················•
+                · 🍵 Matcha                                  · ☕️ Coffee                                  ·
+                ·   (1)  Matcha Latte                $7.45   ·       (6)  Vietnamese Coffee       $6.95   ·
+                ·   (2)  Honey Matcha Latte          $7.95   ·       (7)  Caffe Mocha             $7.20   ·
+                ·   (3)  Strawberry Matcha           $8.20   ·       (8)  Caffe Caramel           $7.20   ·
+                ·   (4)  Mango Matcha                $8.20   ·       (9)  Caffe Vanilla           $7.20   ·
+                ·   (5)  Matcha Cloud                $8.45   ·       (10) Caffe Cloud             $7.95   ·
+                ·                                            ·                                            ·
+                · 🧋 Milk Tea                                · 🍓 Fruit Tea                               ·
+                ·   (11) Classic Milk Tea            $5.95   ·       19) Berry Burrow             $6.95   ·
+                ·   (12) Jasmine Milk Tea            $5.95   ·       20) Mango Heaven             $6.95   ·
+                ·   (13) Oolong Milk Tea             $5.95   ·       21) Watermelon Lychee Bliss  $7.95   ·
+                ·   (14) Thai Milk Tea               $5.95   ·       22) Peach Paradise           $6.95   ·
+                ·   (15) Wintermelon Milk Tea        $6.20   ·       23) Fruit Overload           $8.95   ·
+                ·   (16) Peach Oolong Milk Tea       $6.20   ·       24) Sunrise Orchard          $7.20   ·
+                ·   (17) Strawberry Milk Tea         $6.20   ·       25) Passionfruit Burst       $6.95   ·
+                ·   (18) Mango Milk Tea              $6.20   ·       26) Dreamy Lychee            $6.95   ·
+                •·················•·················•·················•·················•·················•
+                ·   (R) Return to order                                                                   ·
+                •·················•·················•·················•·················•·················•
                 """);
     }
 
