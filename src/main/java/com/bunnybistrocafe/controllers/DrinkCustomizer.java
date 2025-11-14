@@ -15,59 +15,63 @@ public class DrinkCustomizer {
     }
 
     public Drink customizeDrink() {
-        // get basics
-        DrinkSize size = getSize();
-        DrinkType type = getDrinkType();
+        try {
+            // get basics
+            DrinkSize size = getSize();
+            DrinkType type = getDrinkType();
 
-        // initialize some attributes
-        boolean isIced = true;
-        ArrayList<CoffeeFlavor> coffeeFlavors = new ArrayList<>();
-        TeaType teaType = TeaType.BLACK;
-        ArrayList<TeaFlavor> teaFlavors = new ArrayList<>();
-        double iceLevel = 1;
-        MilkType milk = MilkType.WHOLE;
+            // initialize some attributes
+            boolean isIced = true;
+            ArrayList<CoffeeFlavor> coffeeFlavors = new ArrayList<>();
+            TeaType teaType = TeaType.BLACK;
+            ArrayList<TeaFlavor> teaFlavors = new ArrayList<>();
+            double iceLevel = 1;
+            MilkType milk = MilkType.WHOLE;
 
-        // get customized attributes
-        if (type == DrinkType.MATCHA || type == DrinkType.COFFEE) {
-            isIced = getIcedOrHot();
+            // get customized attributes
+            if (type == DrinkType.MATCHA || type == DrinkType.COFFEE) {
+                isIced = getIcedOrHot();
+            }
+
+            if (type == DrinkType.COFFEE) {
+                coffeeFlavors = getCoffeeFlavors();
+            }
+
+            if (type == DrinkType.MILK_TEA || type == DrinkType.TEA) {
+                teaType = getTeaType();
+                teaFlavors = getTeaFlavors();
+            }
+
+            SweetenerType sweetener = getSweetenerType();
+            double sweetnessLevel = getSweetnessLevel();
+
+            if (isIced) {
+                iceLevel = getIceLevel();
+            }
+
+            if (type != DrinkType.TEA) {
+                milk = getMilkType();
+            }
+
+            ArrayList<Topping> toppings = getToppings();
+
+            boolean hasPlushie = getHasPlushie();
+
+            // create drinks based on type
+            if (type == DrinkType.MATCHA) {
+                return new Matcha(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk);
+            } else if (type == DrinkType.COFFEE) {
+                return new Coffee(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk, coffeeFlavors);
+            } else if (type == DrinkType.MILK_TEA) {
+                return new MilkTea(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, teaType, milk, teaFlavors);
+            } else { //tea
+                return new Tea(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, teaType, teaFlavors);
+            }
         }
-
-        if (type == DrinkType.COFFEE) {
-            coffeeFlavors = getCoffeeFlavors();
-        }
-
-        if (type == DrinkType.MILK_TEA || type == DrinkType.TEA) {
-            teaType = getTeaType();
-            teaFlavors = getTeaFlavors();
-        }
-
-        SweetenerType sweetener = getSweetenerType();
-        double sweetnessLevel = getSweetnessLevel();
-
-        if (isIced) {
-            iceLevel = getIceLevel();
-        }
-
-        if (type != DrinkType.TEA) {
-            milk = getMilkType();
-        }
-
-        ArrayList<Topping> toppings = getToppings();
-
-        boolean hasPlushie = getHasPlushie();
-
-        // create drinks based on type
-        if (type == DrinkType.MATCHA) {
-            return new Matcha(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk);
-        }
-        else if (type == DrinkType.COFFEE) {
-            return new Coffee(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk, coffeeFlavors);
-        }
-        else if (type == DrinkType.MILK_TEA) {
-            return new MilkTea(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, teaType, milk, teaFlavors);
-        }
-        else { //tea
-            return new Tea(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, teaType, teaFlavors);
+        catch (RuntimeException e) {
+            System.out.println("Drink cancelled. Returning to order.");
+            UserInterface.waitForKey(scnr);
+            return null;
         }
     }
 
@@ -81,8 +85,14 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
+            String input = scnr.nextLine();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+
             try {
-                size = DrinkSize.fromAbbreviation(scnr.nextLine());
+                size = DrinkSize.fromAbbreviation(input);
                 valid = true;
             }
             catch (IllegalArgumentException e) {
@@ -101,8 +111,14 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
+            String input = scnr.nextLine();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+
             try {
-                type = DrinkType.fromAbbreviation(scnr.nextLine());
+                type = DrinkType.fromAbbreviation(input);
                 valid = true;
             }
             catch (IllegalArgumentException e) {
@@ -121,8 +137,14 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
+            String input = scnr.nextLine();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+
             try {
-                teaType = TeaType.fromAbbreviation(scnr.nextLine());
+                teaType = TeaType.fromAbbreviation(input);
                 valid = true;
             }
             catch (IllegalArgumentException e) {
@@ -144,6 +166,10 @@ public class DrinkCustomizer {
 
             System.out.print("> Enter flavor(s): ");
             String input = scnr.nextLine().trim();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
 
             //return empty arraylist if skip
             if (input.isEmpty()) {
@@ -195,12 +221,15 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
-            String choice = scnr.nextLine().trim();
+            String input = scnr.nextLine().trim();
 
-            if (choice.equalsIgnoreCase("I")) {
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+            else if (input.equalsIgnoreCase("I")) {
                 valid = true;
             }
-            else if (choice.equalsIgnoreCase("H")) {
+            else if (input.equalsIgnoreCase("H")) {
                 isIced = false;
                 valid = true;
             }
@@ -224,6 +253,10 @@ public class DrinkCustomizer {
 
             System.out.print("> Enter flavor(s): ");
             String input = scnr.nextLine().trim();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
 
             //return empty arraylist if skip
             if (input.isEmpty()) {
@@ -270,8 +303,14 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
+            String input = scnr.nextLine();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+
             try {
-                sweetener = SweetenerType.fromAbbreviation(scnr.nextLine());
+                sweetener = SweetenerType.fromAbbreviation(input);
                 valid = true;
             }
             catch (IllegalArgumentException e) {
@@ -290,8 +329,14 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
+            String input = scnr.nextLine().trim();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+
             try {
-                sweetnessLevel = Double.parseDouble(scnr.nextLine());
+                sweetnessLevel = Double.parseDouble(input);
 
                 for (int level = 0; level <= 125; level += 25) {
                     if (sweetnessLevel == level) {
@@ -320,8 +365,14 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
+            String input = scnr.nextLine().trim();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+
             try {
-                iceLevel = Double.parseDouble(scnr.nextLine());
+                iceLevel = Double.parseDouble(input);
 
                 for (int level = 0; level <= 125; level += 25) {
                     if (iceLevel == level) {
@@ -350,8 +401,14 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
+            String input = scnr.nextLine();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+
             try {
-                milkType = MilkType.fromAbbreviation(scnr.nextLine());
+                milkType = MilkType.fromAbbreviation(input);
                 valid = true;
             }
             catch (IllegalArgumentException e) {
@@ -373,6 +430,10 @@ public class DrinkCustomizer {
 
             System.out.print("> Enter topping(s): ");
             String input = scnr.nextLine().trim();
+
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
 
             //return empty arraylist if skip
             if (input.isEmpty()) {
@@ -423,12 +484,15 @@ public class DrinkCustomizer {
 
         while (!valid) {
             System.out.print("> Enter choice: ");
-            String choice = scnr.nextLine().trim();
+            String input = scnr.nextLine().trim();
 
-            if (choice.equalsIgnoreCase("Y")) {
+            if (input.equalsIgnoreCase("R")) {
+                throw new RuntimeException();
+            }
+            else if (input.equalsIgnoreCase("Y")) {
                 valid = true;
             }
-            else if (choice.equalsIgnoreCase("N")) {
+            else if (input.equalsIgnoreCase("N")) {
                 hasPlushie = false;
                 valid = true;
             }

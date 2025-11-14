@@ -54,16 +54,19 @@ public class DrinkScreen implements Screen {
                         case CUSTOM -> {
                             DrinkCustomizer drinkCustomizer = new DrinkCustomizer(scnr);
                             Drink drink = drinkCustomizer.customizeDrink();
-                            boolean success = orderManager.addItemToOrder(drink);
 
-                            if (success) {
-                                System.out.printf("%s %s was added to your order.%n",
-                                        drink.getSize().getName(), drink.getType().getName());
-                            } else {
-                                System.out.println("Something went wrong when adding to order.");
+                            if (drink != null) {
+                                boolean success = orderManager.addItemToOrder(drink);
+
+                                if (success) {
+                                    System.out.printf("%s %s was added to your order.%n",
+                                            drink.getSize().getName(), drink.getType().getName());
+                                } else {
+                                    System.out.println("Something went wrong when adding to order.");
+                                }
+
+                                UserInterface.waitForKey(scnr);
                             }
-
-                            UserInterface.waitForKey(scnr);
                         }
                     }
                 } catch (IllegalArgumentException e) {
