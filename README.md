@@ -34,7 +34,7 @@ See **[UML_Diagram.md](UML_Diagram.md)** for the full class structure and relati
     }
 
 
-// PASRT 2 - Line 72 in OrderScreen.java
+// PART 2 - Line 72 in OrderScreen.java
 
   CheckoutScreen cs = new CheckoutScreen(scnr, orderManager);
   cs.displayScreen();
