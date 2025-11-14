@@ -10,23 +10,12 @@
 ---
 
 ## 📋 Diagram
-<img width="1424" height="697" alt="image" src="https://github.com/user-attachments/assets/b71ff532-92d5-46d4-8236-c1fc145e24dc" />
-<img width="1424" height="697" alt="image" src="https://github.com/user-attachments/assets/ac43d5aa-3c8b-4855-86d8-d89f4aed3a9d" />
-<img width="897" height="683" alt="image" src="https://github.com/user-attachments/assets/3dc6dad1-8a23-441c-9a38-78458e8d3007" />
+<img width="1478" height="686" alt="image" src="https://github.com/user-attachments/assets/6ae1645e-c70d-4d1f-8781-47f4fdf4f247" />
+<img width="1478" height="686" alt="image" src="https://github.com/user-attachments/assets/05c2282c-36d1-4525-bd71-aec0f92620f3" />
+<img width="1478" height="686" alt="image" src="https://github.com/user-attachments/assets/17c2e675-ad4c-4130-8107-389082a09a31" />
+
 
 ---
 
-## 💭 Overview
-<img width="791" height="716" alt="image" src="https://github.com/user-attachments/assets/51ea73fb-64a5-4313-9097-58d59b33b1e2" />
-<img width="791" height="723" alt="image" src="https://github.com/user-attachments/assets/adefa68b-ec61-48a5-a228-6b641e3608cc" />
-<img width="791" height="199" alt="image" src="https://github.com/user-attachments/assets/0e901865-735e-4155-8833-10b89c9296d2" />
-
----
-
-## 🎨 Customization Options & Flow
-<img width="752" height="761" alt="image" src="https://github.com/user-attachments/assets/a48d9416-0afc-4626-be8b-df4d6d0917d8" />
-
----
-
-## 💸 Menu Prices
-<img width="539" height="741" alt="image" src="https://github.com/user-attachments/assets/d7a5d23f-f831-4a1a-8df0-d794c1713a2f" />
+## 💭 Other
+Visit FigJam link above for full overview, customization options & flow, menu prices, and overall planning in addition to UML Diagram.
