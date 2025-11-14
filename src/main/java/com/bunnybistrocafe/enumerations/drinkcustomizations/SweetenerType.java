@@ -2,7 +2,7 @@ package com.bunnybistrocafe.enumerations.drinkcustomizations;
 
 public enum SweetenerType {
     CANE_SUGAR("C", "Cane Sugar", 0.00), STEVIA("S", "Stevia", 0.00),
-    HONEY("H", "Honey", 0.50), CONDENSED_MILK("CM", "Condensed Milk", 0.50);
+    HONEY("H", "Honey", 0.50), CONDENSED_MILK("CM", "Condensed Milk", 0.00);
 
     private final String abbreviation;
     private final String name;

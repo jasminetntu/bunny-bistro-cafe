@@ -146,19 +146,19 @@ public class UserInterface {
                 · 🍵 Matcha                             · ☕️ Coffee                             ·
                 ·   (1)  Matcha Latte                   ·       (6)  Vietnamese Coffee          ·
                 ·   (2)  Honey Matcha Latte             ·       (7)  Caffe Mocha                ·
-                ·   (3)  Strawberry Matcha              ·       (3)  Caffe Caramel              ·
-                ·   (4)  Mango Matcha                   ·       (4)  Caffe Vanilla              ·
-                ·   (5)  Matcha Cloud                   ·       (4)  Caffe Cloud                ·
+                ·   (3)  Strawberry Matcha              ·       (8)  Caffe Caramel              ·
+                ·   (4)  Mango Matcha                   ·       (9)  Caffe Vanilla              ·
+                ·   (5)  Matcha Cloud                   ·       (10) Caffe Cloud                ·
                 ·                                       ·                                       ·
                 · 🧋 Milk Tea                           · 🍓 Fruit Tea                          ·
-                ·   (11) Classic Milk Tea               ·       11) Berry Burrow                ·
-                ·   (7)  Jasmine Milk Tea               ·       12) Mango Heaven                ·
-                ·   (3)  Oolong Milk Tea                ·       13) Watermelon Lychee Bliss     ·
-                ·   (4)  Thai Milk Tea                  ·       14) Peach Paradise              ·
-                ·   (4)  Wintermelon Milk Tea           ·       14) Fruit Overload              ·
-                ·   (11) Peach Oolong Milk Tea          ·       11) Sunrise Orchard             ·
-                ·   (7)  Strawberry Milk Tea            ·       12) Passionfruit Burst          ·
-                ·   (3)  Mango Milk Tea                 ·       13) Dreamy Lychee               ·
+                ·   (11) Classic Milk Tea               ·       19) Berry Burrow                ·
+                ·   (12) Jasmine Milk Tea               ·       20) Mango Heaven                ·
+                ·   (13) Oolong Milk Tea                ·       21) Watermelon Lychee Bliss     ·
+                ·   (14) Thai Milk Tea                  ·       22) Peach Paradise              ·
+                ·   (15) Wintermelon Milk Tea           ·       23) Fruit Overload              ·
+                ·   (16) Peach Oolong Milk Tea          ·       24) Sunrise Orchard             ·
+                ·   (17) Strawberry Milk Tea            ·       25) Passionfruit Burst          ·
+                ·   (18) Mango Milk Tea                 ·       26) Dreamy Lychee               ·
                 •···················•···················•···················•···················•
                 ·   (R) Return to order                                                         ·
                 •···················•···················•···················•···················•
@@ -278,8 +278,8 @@ public class UserInterface {
                 •···················•···················•
                 ·   (C)  🎋 Cane Sugar (default)        ·
                 ·   (S)  🌱 Stevia                      ·
+                ·   (CM) 🥛 Condensed Milk              ·
                 ·   (H)  🍯 Honey              +$0.50   ·
-                ·   (CM) 🥛 Condensed Milk     +$0.50   ·
                 ·                                       ·
                 ·   (R) Return to order (cancel drink)  ·
                 •···················•···················•

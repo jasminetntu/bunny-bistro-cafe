@@ -15,7 +15,7 @@ public abstract class Drink implements MenuItem {
     private double iceLevel;
     private ArrayList<Topping> toppings;
     private boolean hasPlushie;
-    private String specialName; //null if NOT a signature drink / seasonal
+    private String specialName; //null if NOT a signature drink
 
     // *** CONSTRUCTORS ***
     public Drink() {

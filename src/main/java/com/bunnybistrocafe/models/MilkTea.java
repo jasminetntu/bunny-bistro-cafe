@@ -28,12 +28,10 @@ public class MilkTea extends Drink {
         this.flavors = flavors;
     }
 
-    public MilkTea(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
-                   boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie, String specialName,
-                   TeaType teaType, MilkType milk, ArrayList<TeaFlavor> flavors) {
-        super(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, specialName);
+    public MilkTea(ArrayList<Topping> toppings, String specialName, TeaType teaType, ArrayList<TeaFlavor> flavors) {
+        super(DrinkSize.MEDIUM, DrinkType.MILK_TEA, SweetenerType.CANE_SUGAR, 1, true, 1, toppings, false, specialName);
         this.teaType = teaType;
-        this.milk = milk;
+        this.milk = MilkType.WHOLE;
         this.flavors = flavors;
     }
 

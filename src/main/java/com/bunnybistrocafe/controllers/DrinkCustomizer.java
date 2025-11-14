@@ -75,6 +75,68 @@ public class DrinkCustomizer {
         }
     }
 
+    //todo
+    public Drink customizeSignatureDrink(Drink drink) {
+        try {
+            // get basics
+            DrinkSize size = getSize();
+            DrinkType type = getDrinkType();
+
+            // initialize some attributes
+            boolean isIced = true;
+            ArrayList<CoffeeFlavor> coffeeFlavors = new ArrayList<>();
+            TeaType teaType = TeaType.BLACK;
+            ArrayList<TeaFlavor> teaFlavors = new ArrayList<>();
+            double iceLevel = 1;
+            MilkType milk = MilkType.WHOLE;
+
+            // get customized attributes
+            if (type == DrinkType.MATCHA || type == DrinkType.COFFEE) {
+                isIced = getIcedOrHot();
+            }
+
+            if (type == DrinkType.COFFEE) {
+                coffeeFlavors = getCoffeeFlavors();
+            }
+
+            if (type == DrinkType.MILK_TEA || type == DrinkType.TEA) {
+                teaType = getTeaType();
+                teaFlavors = getTeaFlavors();
+            }
+
+            SweetenerType sweetener = getSweetenerType();
+            double sweetnessLevel = getSweetnessLevel();
+
+            if (isIced) {
+                iceLevel = getIceLevel();
+            }
+
+            if (type != DrinkType.TEA) {
+                milk = getMilkType();
+            }
+
+            ArrayList<Topping> toppings = getToppings();
+
+            boolean hasPlushie = getHasPlushie();
+
+            // create drinks based on type
+            if (type == DrinkType.MATCHA) {
+                return new Matcha(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk);
+            } else if (type == DrinkType.COFFEE) {
+                return new Coffee(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk, coffeeFlavors);
+            } else if (type == DrinkType.MILK_TEA) {
+                return new MilkTea(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, teaType, milk, teaFlavors);
+            } else { //tea
+                return new Tea(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, teaType, teaFlavors);
+            }
+        }
+        catch (RuntimeException e) {
+            System.out.println("Drink cancelled. Returning to order.");
+            UserInterface.waitForKey(scnr);
+            return null;
+        }
+    }
+
     // *** PRIVATE HELPERS ***
 
     private DrinkSize getSize() {
