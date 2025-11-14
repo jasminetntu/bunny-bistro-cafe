@@ -8,10 +8,19 @@ import java.util.Scanner;
 public class HomeScreen implements Screen {
     private final Scanner scnr;
 
+    /**
+     * Constructs a HomeScreen with the given scanner.
+     *
+     * @param scnr the {@link Scanner} for user input
+     */
     public HomeScreen(Scanner scnr) {
         this.scnr = scnr;
     }
 
+    /**
+     * Displays the home screen to the user.
+     * Provides options to start a new order or exit the application.
+     */
     @Override
     public void displayScreen() {
         boolean isRunning = true;
@@ -29,9 +38,7 @@ public class HomeScreen implements Screen {
                         OrderScreen os = new OrderScreen(scnr);
                         os.displayScreen();
                     }
-                    case EXIT -> {
-                        isRunning = false;
-                    }
+                    case EXIT -> isRunning = false;
                 }
             }
             catch (IllegalArgumentException e) {

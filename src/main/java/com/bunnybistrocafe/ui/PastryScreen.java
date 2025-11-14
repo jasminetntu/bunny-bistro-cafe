@@ -11,11 +11,22 @@ public class PastryScreen implements Screen {
     private final Scanner scnr;
     private final OrderManager orderManager;
 
+    /**
+     * Constructs a PastryScreen with the given scanner and order manager.
+     *
+     * @param scnr the {@link Scanner} for user input
+     * @param orderManager the {@link OrderManager} handling the order
+     */
     public PastryScreen(Scanner scnr, OrderManager orderManager) {
         this.scnr = scnr;
         this.orderManager = orderManager;
     }
 
+    /**
+     * Displays the pastry screen to the user.
+     * Shows the pastry menu and allows the user to select a pastry,
+     * or return to the previous screen.
+     */
     @Override
     public void displayScreen() {
         boolean isRunning = true;

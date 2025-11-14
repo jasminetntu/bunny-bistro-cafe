@@ -14,11 +14,22 @@ public class DrinkScreen implements Screen {
     private final Scanner scnr;
     private final OrderManager orderManager;
 
+    /**
+     * Constructs a DrinkScreen with the given scanner and order manager.
+     *
+     * @param scnr the {@link Scanner} for user input
+     * @param orderManager the {@link OrderManager} handling the order
+     */
     public DrinkScreen(Scanner scnr, OrderManager orderManager) {
         this.scnr = scnr;
         this.orderManager = orderManager;
     }
 
+    /**
+     * Displays the drink screen to the user.
+     * Shows the drink menu and allows the user to select a signature or custom drink,
+     * or return to the previous screen.
+     */
     @Override
     public void displayScreen() {
         boolean isRunning = true;
@@ -42,12 +53,8 @@ public class DrinkScreen implements Screen {
                     drinkChoice = DrinkOption.fromNum(Integer.parseInt(input));
 
                     switch (drinkChoice) {
-                        case SIGNATURE -> {
-                            getSignatureDrink();
-                        }
-                        case CUSTOM -> {
-                            getCustomDrink();
-                        }
+                        case SIGNATURE -> getSignatureDrink();
+                        case CUSTOM -> getCustomDrink();
                     }
                 } catch (IllegalArgumentException e) {
                     System.out.println("❌ Invalid input. Must be 1-2 or R.");
@@ -57,6 +64,11 @@ public class DrinkScreen implements Screen {
     } //end method
 
     // *** HELPERS ***
+
+    /**
+     * Handles the customization of a custom drink.
+     * Uses {@link DrinkCustomizer} to allow the user to build a drink and then adds it to the order.
+     */
     private void getCustomDrink() {
         DrinkCustomizer drinkCustomizer = new DrinkCustomizer(scnr);
         Drink drink = drinkCustomizer.customizeDrink();
@@ -75,6 +87,11 @@ public class DrinkScreen implements Screen {
         }
     }
 
+    /**
+     * Handles selection of a signature drink.
+     * Prompts the user to optionally customize the drink, then adds it to the order.
+     * Uses {@link DrinkCustomizer} for customization.
+     */
     private void getSignatureDrink() {
         boolean valid = false;
         boolean success = false;

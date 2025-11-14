@@ -11,11 +11,22 @@ public class OrderScreen implements Screen {
     private final Scanner scnr;
     private final OrderManager orderManager;
 
+    /**
+     * Constructs an OrderScreen with the given scanner.
+     * Initializes a new {@link OrderManager} for managing the order.
+     *
+     * @param scnr the {@link Scanner} for user input
+     */
     public OrderScreen(Scanner scnr) {
         this.scnr = scnr;
         this.orderManager = new OrderManager();
     }
 
+    /**
+     * Displays the order screen to the user.
+     * Provides options to add drinks, pastries, or entrees, view the order summary,
+     * proceed to checkout, or return to the home screen.
+     */
     @Override
     public void displayScreen() {
         boolean isRunning = true;

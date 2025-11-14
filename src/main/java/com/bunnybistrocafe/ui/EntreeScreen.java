@@ -11,11 +11,21 @@ public class EntreeScreen implements Screen {
     private final Scanner scnr;
     private final OrderManager orderManager;
 
+    /**
+     * Constructs an EntreeScreen with the given scanner and order manager.
+     *
+     * @param scnr the {@link Scanner} for user input
+     * @param orderManager the {@link OrderManager} handling the order
+     */
     public EntreeScreen(Scanner scnr, OrderManager orderManager) {
         this.scnr = scnr;
         this.orderManager = orderManager;
     }
 
+    /**
+     * Displays the entree screen and allows user to select an entree,
+     * or return to the previous screen.
+     */
     @Override
     public void displayScreen() {
         boolean isRunning = true;

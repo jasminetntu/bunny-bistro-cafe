@@ -11,25 +11,54 @@ public enum Pastry implements MenuItem {
     private final String name;
     private final double price;
 
+    /**
+     * Constructor for Pastry enum.
+     *
+     * @param num   unique identifier
+     * @param name  display name
+     * @param price price of the pastry
+     */
     Pastry(int num, String name, double price) {
         this.num = num;
         this.name = name;
         this.price = price;
     }
 
+    /**
+     * Returns the unique number assigned to the pastry.
+     *
+     * @return the pastry number
+     */
     public int getNum() {
         return num;
     }
 
+    /**
+     * Returns the name of the pastry.
+     *
+     * @return the pastry name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns the price of the pastry.
+     *
+     * @return the pastry price
+     */
     @Override
     public double getPrice() {
         return price;
     }
 
+    /**
+     * Returns the Pastry enum corresponding to the given number.
+     *
+     * @param num the unique number of the pastry
+     * @return the matching {@link Pastry} enum
+     * @throws IllegalArgumentException if no matching pastry is found
+     */
     public static Pastry fromNum(int num) {
         // iterate through all enum values
         for (Pastry option : Pastry.values()) {
@@ -43,16 +72,32 @@ public enum Pastry implements MenuItem {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Returns the category order for sorting purposes.
+     * Pastries have a category order of 1 (second).
+     *
+     * @return category order
+     */
     @Override
     public int getCategoryOrder() {
         return 1;
     }
 
+    /**
+     * Returns a Receipt string representation of the pastry with price.
+     *
+     * @return formatted string
+     */
     @Override
     public String toString() {
         return String.format("   %-36s$%.2f", name, price);
     }
 
+    /**
+     * Returns a short string representation of the pastry (name only).
+     *
+     * @return short string
+     */
     @Override
     public String toShortString() {
         return name;

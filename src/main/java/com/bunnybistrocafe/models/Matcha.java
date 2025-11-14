@@ -10,7 +10,7 @@ public class Matcha extends Drink {
     // *** CONSTRUCTORS ***
 
     /**
-     * Creates a default Matcha drink with standard base settings and whole milk.
+     * Creates a medium iced Matcha drink with standard base settings and whole milk.
      * Basic defaults come from the {@link Drink} no-argument constructor.
      */
     public Matcha() {
@@ -113,11 +113,6 @@ public class Matcha extends Drink {
      */
     @Override
     public String toShortString() {
-        StringBuilder sb = new StringBuilder(super.toShortString());
-
-        //milk
-        sb.append(" | ").append(milk.getName());
-
-        return sb.toString();
+        return super.toShortString() + " | " + milk.getName();
     }
 }
