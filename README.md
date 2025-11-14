@@ -55,6 +55,21 @@ There wasn't an easy way to know whether or not the user wanted to Confirm/Cance
 
 ---
 
+### 🧋 Future Features
+Possible future enhancements include:
+- **Quality of Life:**
+  - Remove items from order.
+  - Display signature drink details before asking if they want to customize.
+  - Ask confirm/cancel for signature drink.
+  - Add colored headers & unique logo.
+- **User Accounts + Login System:** Save user profiles or allow guests.
+- **Rewards Program:** Earn points, redeem discounts, and view order history.
+- **Extended Menu Items:** Seasonal rotations, custom pastry options, and more.
+- **Order History:** Store previous orders in a user's profile.
+- **Character sets:** Ensure emojis are viewable on all systems/devices.
+
+---
+
 ## 📁 File Structure
 ```
 src/
@@ -124,16 +139,6 @@ src/
 ├── README.md
 └── UML_Diagram.md
 ```
-
----
-
-### 🧋 Future Features
-Future enhancements include:
-- **Item removal:** Remove items from order.
-- **User Accounts + Login System:** Save user profiles or allow guests.
-- **Rewards Program:** Earn points, redeem discounts, and view order history.
-- **Extended Menu Items:** Seasonal rotations, custom pastry options, and more.
-- **Order History:** Store previous orders in a user's profile.
 
 ---
 
