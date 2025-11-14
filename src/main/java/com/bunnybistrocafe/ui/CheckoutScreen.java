@@ -47,7 +47,7 @@ public class CheckoutScreen implements Screen {
 
                 isRunning = false;
             } catch (IllegalArgumentException e) {
-                System.out.println("Invalid input. Must be N or X.");
+                System.out.println("❌ Invalid input. Must be Y or N or R.");
             }
         }
     }

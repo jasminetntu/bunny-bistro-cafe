@@ -1,7 +1,6 @@
 package com.bunnybistrocafe.models;
 
-import com.bunnybistrocafe.enumerations.drinkcustomizations.SweetenerType;
-import com.bunnybistrocafe.enumerations.drinkcustomizations.Topping;
+import com.bunnybistrocafe.enumerations.drinkcustomizations.*;
 
 import java.util.ArrayList;
 
@@ -13,7 +12,18 @@ public class SignatureMatcha extends Matcha {
         this.signatureName = signatureName;
     }
 
+    public SignatureMatcha(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel, boolean isIced,
+                           double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie, MilkType milk, String signatureName) {
+        super(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk);
+        this.signatureName = signatureName;
+    }
+
     public String getSignatureName() {
         return signatureName;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return signatureName; // returns the special name
     }
 }

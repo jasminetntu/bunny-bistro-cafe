@@ -47,7 +47,7 @@ public class PastryScreen implements Screen {
 
                     UserInterface.waitForKey(scnr);
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Invalid input. Must be 1-9 or R.");
+                    System.out.println("❌ Invalid input. Must be 1-9 or R.");
                 }
             }
         }

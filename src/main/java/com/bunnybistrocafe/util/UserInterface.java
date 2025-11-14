@@ -24,7 +24,7 @@ public class UserInterface {
 
         for (int i = 0; i < 10; ++i) {
             Thread.sleep(100);
-            System.out.print("▒▒▒");
+            System.out.print("▒▒▒▒");
         }
         System.out.println();
         Thread.sleep(200);
@@ -75,7 +75,7 @@ public class UserInterface {
                                  Add a drink 🍵
                 •·······················•·······················•
                 View...
-                    (1) 🧋 Signature Drinks (TBA)
+                    (1) 🧋 Signature Drinks
                     (2) 📝 Custom Drink
                 
                     (R) Return to order

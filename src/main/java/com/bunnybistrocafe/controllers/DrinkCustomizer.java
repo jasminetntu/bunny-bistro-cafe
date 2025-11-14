@@ -71,12 +71,10 @@ public class DrinkCustomizer {
         }
         catch (RuntimeException e) {
             System.out.println("Drink cancelled. Returning to order.");
-            UserInterface.waitForKey(scnr);
             return null;
         }
     }
 
-    //todo
     public Drink customizeSignatureDrink(Drink drink) {
         try {
             // basics
@@ -121,20 +119,23 @@ public class DrinkCustomizer {
 
             // create drinks based on type
             if (drink instanceof Matcha m) {
-                return new Matcha(size, m.getType(), sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk);
+                return new SignatureMatcha(size, m.getType(), sweetener, sweetnessLevel, isIced, iceLevel, toppings,
+                        hasPlushie, milk, drink.getDisplayName());
             } else if (drink instanceof Coffee c) {
-                return new Coffee(size, drink.getType(), sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, milk, new ArrayList<>(c.getFlavors()));
+                return new SignatureCoffee(size, drink.getType(), sweetener, sweetnessLevel, isIced, iceLevel, toppings,
+                        hasPlushie, milk, new ArrayList<>(c.getFlavors()), drink.getDisplayName());
             } else if (drink instanceof MilkTea mt) {
-                return new MilkTea(size, drink.getType(), sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, teaType, milk, new ArrayList<>(mt.getFlavors()));
+                return new SignatureMilkTea(size, drink.getType(), sweetener, sweetnessLevel, isIced, iceLevel, toppings,
+                        hasPlushie, teaType, milk, new ArrayList<>(mt.getFlavors()), drink.getDisplayName());
             } else if (drink instanceof Tea t) { //tea
-                return new Tea(size, drink.getType(), sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, teaType, new ArrayList<>(t.getFlavors()));
+                return new SignatureTea(size, drink.getType(), sweetener, sweetnessLevel, isIced, iceLevel, toppings,
+                        hasPlushie, teaType, new ArrayList<>(t.getFlavors()), drink.getDisplayName());
             } else {
                 return null;
             }
         }
         catch (RuntimeException e) {
             System.out.println("Signature drink cancelled. Returning to order.");
-            UserInterface.waitForKey(scnr);
             return null;
         }
     }
@@ -684,7 +685,7 @@ public class DrinkCustomizer {
         UserInterface.printSweetnessLevelOptions();
 
         while (!valid) {
-            System.out.print("> Enter choice (or ENTER to keep " + defaultVal + "): ");
+            System.out.print("> Enter choice (or ENTER to keep " + (int) (defaultVal * 100) + "): ");
             String input = scnr.nextLine().trim();
 
             // cancel
@@ -727,7 +728,7 @@ public class DrinkCustomizer {
         UserInterface.printIceLevelOptions();
 
         while (!valid) {
-            System.out.print("> Enter choice (or ENTER to keep " + defaultVal + "): ");
+            System.out.print("> Enter choice (or ENTER to keep " + (int) (defaultVal * 100) + "): ");
             String input = scnr.nextLine().trim();
 
             // cancel
@@ -798,108 +799,142 @@ public class DrinkCustomizer {
 
     private ArrayList<Topping> getOptionalToppings(ArrayList<Topping> defaultVals) {
         ArrayList<Topping> toppings = new ArrayList<>(defaultVals);
+        boolean validChoice = false;
 
         // *** REMOVE TOPPINGS ***
+        while (!validChoice) {
+            if (!toppings.isEmpty()) {
+                System.out.println("\nCurrent toppings:");
+                for (int i = 0; i < toppings.size(); i++) {
+                    System.out.println((i + 1) + ". " + toppings.get(i).getName());
+                }
+
+                System.out.print("\nWould you like to remove any toppings? (Y/N): ");
+                String removeChoice = scnr.nextLine().trim();
+
+                if (removeChoice.equalsIgnoreCase("N")) {
+                    validChoice = true;
+                }
+                else if (removeChoice.equalsIgnoreCase("Y")) {
+                    boolean validRemove = false;
+
+                    while (!validRemove) {
+                        System.out.print("> Enter topping number(s) to remove (comma-separated), or (R) to Cancel: ");
+                        String input = scnr.nextLine().trim();
+
+                        // cancel
+                        if (input.equalsIgnoreCase("R")) {
+                            throw new RuntimeException();
+                        }
+
+                        String[] toppingNumbers = input.split(",");
+                        validRemove = true;
+
+                        if (toppingNumbers.length > toppings.size()) { // error if user inputs more than max allowed
+                            System.out.println("You cannot remove more than default toppings. Please try again.");
+                            validRemove = false;
+                        } else {
+                            List<Topping> toRemove = new ArrayList<>();
+                            // iterate through each flavor
+                            for (String num : toppingNumbers) {
+                                try {
+                                    int i = Integer.parseInt(num.trim()) - 1;
+                                    if (i < 0 || i >= toppings.size()) {
+                                        throw new IllegalArgumentException();
+                                    }
+                                    toRemove.add(toppings.get(i));
+                                } catch (NumberFormatException e) { // non-integer input
+                                    System.out.println("❌ Input must be an integer.");
+                                    validRemove = false;
+                                } catch (IllegalArgumentException e) { //integer out of bounds
+                                    System.out.println("❌ Not a valid topping number. Please try again.");
+                                    validRemove = false;
+                                }
+                            }
+
+                            //only remove if all toppings were valid
+                            if (toRemove.size() == toppingNumbers.length) {
+                                toppings.removeAll(toRemove);
+                            }
+
+                            validChoice = true;
+                        } // end else
+                    } // end inner while
+                }
+                else {
+                    System.out.println("❌ Invalid input. Must be Y or N.");
+                } // end inner if
+            } // end outer if
+        } // end outer while
+
+        // *** ADD TOPPINGS ***
         if (!toppings.isEmpty()) {
             System.out.println("\nCurrent toppings:");
             for (int i = 0; i < toppings.size(); i++) {
                 System.out.println((i + 1) + ". " + toppings.get(i).getName());
             }
+        }
+        else {
+            System.out.println("Drink currently has no toppings.");
+        }
 
-            System.out.print("\nWould you like to remove any toppings? (Y/N): ");
-            String removeChoice = scnr.nextLine().trim();
+        validChoice = false;
+        while (!validChoice) {
+            System.out.print("\nWould you like to add toppings? (Y/N): ");
+            String addChoice = scnr.nextLine().trim();
 
-            if (removeChoice.equalsIgnoreCase("Y")) {
-                boolean validRemove = false;
+            if (addChoice.equalsIgnoreCase("N")) {
+                validChoice = true;
+            }
+            else if (addChoice.equalsIgnoreCase("Y")) {
+                boolean validAdd = false;
 
-                while (!validRemove) {
-                    System.out.print("> Enter topping number(s) to remove (comma-separated), or (R) to Cancel: ");
+                while (!validAdd) {
+                    UserInterface.printToppingOptions();
+                    System.out.print("> Enter topping number(s) to add (comma-separated), or (R) to Cancel: ");
                     String input = scnr.nextLine().trim();
 
-                    // cancel
                     if (input.equalsIgnoreCase("R")) {
                         throw new RuntimeException();
                     }
 
-                    String[] toppingNumbers = input.split(",");
-                    validRemove = true;
+                    if (!input.isEmpty()) {
+                        String[] toppingNumbers = input.split(",");
+                        validAdd = true;
 
-                    if (toppingNumbers.length > toppings.size()) { // error if user inputs more than max allowed
-                        System.out.println("You cannot remove more than default toppings. Please try again.");
-                        validRemove = false;
-                    }
-                    else {
-                        List<Topping> toRemove = new ArrayList<>();
-                        // iterate through each flavor
-                        for (String num : toppingNumbers) {
-                            try {
-                                int i = Integer.parseInt(num.trim()) - 1;
-                                if (i < 0 || i >= toppings.size()) {
-                                    throw new IllegalArgumentException();
+                        if (toppingNumbers.length + toppings.size() > 5) { // error if user inputs more than max allowed
+                            System.out.println("❌ You cannot have more than 5 toppings. Please try again.");
+                            validAdd = false;
+                        } else {
+                            List<Topping> toAdd = new ArrayList<>();
+                            // iterate through each flavor
+                            for (String num : toppingNumbers) {
+                                try {
+                                    // add each flavor to arraylist if valid
+                                    toAdd.add(Topping.fromNum(Integer.parseInt(num.trim())));
+                                } catch (NumberFormatException e) { // non-integer input
+                                    System.out.println("❌ Input must be an integer.");
+                                    validAdd = false;
+                                } catch (IllegalArgumentException e) { //integer out of bounds
+                                    System.out.println("❌ Not a valid topping number (1-14). Please try again.");
+                                    validAdd = false;
                                 }
-                                toRemove.add(toppings.get(i));
+                            } // end for
+
+                            //only add if all toppings were valid
+                            if (toAdd.size() == toppingNumbers.length) {
+                                toppings.addAll(toAdd);
                             }
-                            catch (NumberFormatException e) { // non-integer input
-                                System.out.println("Input must be an integer.");
-                                validRemove = false;
-                            }
-                            catch (IllegalArgumentException e) { //integer out of bounds
-                                System.out.println("Not a valid topping number. Please try again.");
-                                validRemove = false;
-                            }
-                        }
 
-                        toppings.removeAll(toRemove);
-                    } // end else
-                } // end while
-            } // end inner if
-        } // end outer if
-
-        // *** ADD TOPPINGS ***
-        System.out.print("\nWould you like to add toppings? (Y/N): ");
-        String addChoice = scnr.nextLine().trim();
-
-        if (addChoice.equalsIgnoreCase("Y")) {
-            boolean validAdd = false;
-
-            while (!validAdd) {
-                UserInterface.printToppingOptions();
-                System.out.print("> Enter topping number(s) to add (comma-separated), or (R) to Cancel: ");
-                String input = scnr.nextLine().trim();
-
-                if (input.equalsIgnoreCase("R")) {
-                    throw new RuntimeException();
-                }
-
-                if (!input.isEmpty()) {
-                    String[] toppingNumbers = input.split(",");
-                    validAdd = true;
-
-                    if (toppingNumbers.length + toppings.size() > 5) { // error if user inputs more than max allowed
-                        System.out.println("You cannot have more than 5 toppings. Please try again.");
-                        validAdd = false;
-                    }
-                    else {
-                        // iterate through each flavor
-                        for (String num : toppingNumbers) {
-                            try {
-                                // add each flavor to arraylist if valid
-                                toppings.add(Topping.fromNum(Integer.parseInt(num.trim())));
-                            }
-                            catch (NumberFormatException e) { // non-integer input
-                                System.out.println("Input must be an integer.");
-                                validAdd = false;
-                            }
-                            catch (IllegalArgumentException e) { //integer out of bounds
-                                System.out.println("Not a valid topping number (1-14). Please try again.");
-                                validAdd = false;
-                            }
-                        } // end for
-                    } // end else
-                }
+                            validChoice = true;
+                        } // end inner if
+                    } // end outer if
+                } // end inner while
             }
-        }
-
+            else {
+                System.out.println("❌ Invalid input. Must be Y or N.");
+            }
+        } // end outer while
         return toppings;
     }
 
