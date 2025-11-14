@@ -140,30 +140,34 @@ Future enhancements include:
 ## 📸 Screenshots
 
 ### .☘︎ ݁˖ Home Screen
-
+<img width="405" height="239" alt="image" src="https://github.com/user-attachments/assets/cdd4c5c2-9c54-469e-ae61-05d23f260832" />
 
 ### .☘︎ ݁˖ Order Screen
-
+<img width="405" height="414" alt="image" src="https://github.com/user-attachments/assets/69064b6f-d6ea-46d1-9d85-2b96e12d2520" />
 
 ### .☘︎ ݁˖ Drink Screen
-
+<img width="405" height="338" alt="image" src="https://github.com/user-attachments/assets/9df2413f-92bc-411b-9a9c-09655b27cfe1" />
 
 ### .☘︎ ݁˖ Signature Drink Screen
-
+<img width="650" height="507" alt="image" src="https://github.com/user-attachments/assets/1c4eb105-7277-4ec6-bda4-8029caa55eef" />
 
 ### .☘︎ ݁˖ Drink Customization Example (Toppings)
-
+<img width="650" height="487" alt="image" src="https://github.com/user-attachments/assets/7f91fcfc-d69a-43ff-ae73-a9b06681bbe4" />
 
 ### .☘︎ ݁˖ Pastry Screen
-
+<img width="401" height="487" alt="image" src="https://github.com/user-attachments/assets/06e90352-9489-413d-b3b6-e75ef2be9202" />
 
 ### .☘︎ ݁˖ Entree Screen
-
+<img width="401" height="387" alt="image" src="https://github.com/user-attachments/assets/c2442f2c-557f-4981-b2ba-490195001b60" />
 
 ### .☘︎ ݁˖ View Order Example
+<img width="754" height="312" alt="image" src="https://github.com/user-attachments/assets/5c282279-6a96-4dab-b636-f6dd7d864d89" />
 
+### .☘︎ ݁˖ Checkout Screen & Receipt
+<img width="402" height="707" alt="image" src="https://github.com/user-attachments/assets/5d3ec6cc-3a12-4024-8598-cc554953911e" />
 
-### .☘︎ ݁˖ Checkout Screen
+### .☘︎ ݁˖ .txt File
+<img width="465" height="630" alt="image" src="https://github.com/user-attachments/assets/024666fa-6734-4551-afd5-845c0799b869" />
 
 
 
