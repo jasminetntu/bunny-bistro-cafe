@@ -11,10 +11,23 @@ import java.util.Scanner;
 public class DrinkCustomizer {
     private final Scanner scnr;
 
+    // *** CONSTRUCTOR ***
+
+    /**
+     * Creates a new DrinkCustomizer instance, storing a scanner for use.
+     * @param scnr Scanner object
+     */
     public DrinkCustomizer(Scanner scnr) {
         this.scnr = scnr;
     }
 
+    // *** CUSTOMIZE METHODS ***
+
+    /**
+     * Guides user through creating a fully customized drink from scratch.
+     * Prompts user for size, type, iced/hot, milk, flavors, sweetener, toppings, and plushie upgrade.
+     * @return a Drink object representing the customized drink, or null if the order was cancelled
+     */
     public Drink customizeDrink() {
         try {
             // get basics
@@ -75,6 +88,13 @@ public class DrinkCustomizer {
         }
     }
 
+    /**
+     * Guides user through customizing a signature drink.
+     * Allows user to optionally change size, ice level, sweetener, toppings, milk, and plushie upgrade.
+     * Maintains original signature attributes like signature name and flavors.
+     * @param drink the original signature Drink to customize
+     * @return a new Drink object representing the customized signature drink, or null if cancelled
+     */
     public Drink customizeSignatureDrink(Drink drink) {
         try {
             // basics
@@ -141,6 +161,12 @@ public class DrinkCustomizer {
     }
 
     // *** PRIVATE HELPERS FOR MANDATORY ***
+
+    /**
+     * Prompts user to select a drink size.
+     * @return the chosen DrinkSize
+     * @throws RuntimeException if user cancels the input
+     */
     private DrinkSize getSize() {
         DrinkSize size = null;
         boolean valid = false;
@@ -167,6 +193,11 @@ public class DrinkCustomizer {
         return size;
     }
 
+    /**
+     * Prompts user to select a drink type (Matcha, Coffee, Milk Tea, Tea).
+     * @return the chosen DrinkType
+     * @throws RuntimeException if user cancels the input
+     */
     private DrinkType getDrinkType() {
         DrinkType type = null;
         boolean valid = false;
@@ -193,6 +224,11 @@ public class DrinkCustomizer {
         return type;
     }
 
+    /**
+     * Prompts user to select a tea type.
+     * @return the chosen TeaType
+     * @throws RuntimeException if user cancels the input
+     */
     private TeaType getTeaType() {
         TeaType teaType = null;
         boolean valid = false;
@@ -219,6 +255,11 @@ public class DrinkCustomizer {
         return teaType;
     }
 
+    /**
+     * Prompts user to select one or more tea flavors.
+     * @return an ArrayList of selected TeaFlavor objects; may be empty if skipped
+     * @throws RuntimeException if user cancels the input
+     */
     private ArrayList<TeaFlavor> getTeaFlavors() {
         ArrayList<TeaFlavor> teaFlavors = new ArrayList<>();
         boolean valid = false;
@@ -272,6 +313,11 @@ public class DrinkCustomizer {
         return teaFlavors;
     }
 
+    /**
+     * Prompts user to choose whether the drink is iced or hot.
+     * @return true if iced, false if hot
+     * @throws RuntimeException if user cancels the input
+     */
     private boolean getIcedOrHot() {
         boolean isIced = true;
         boolean valid = false;
@@ -300,6 +346,11 @@ public class DrinkCustomizer {
         return isIced;
     }
 
+    /**
+     * Prompts user to select one or more coffee flavors.
+     * @return an ArrayList of selected CoffeeFlavor objects; may be empty if skipped
+     * @throws RuntimeException if user cancels the input
+     */
     private ArrayList<CoffeeFlavor> getCoffeeFlavors() {
         ArrayList<CoffeeFlavor> coffeeFlavors = new ArrayList<>();
         boolean valid = false;
@@ -349,6 +400,12 @@ public class DrinkCustomizer {
         return coffeeFlavors;
     }
 
+    /**
+     * Prompts user to select a sweetener type.
+     *
+     * @return the chosen SweetenerType
+     * @throws RuntimeException if user cancels the input
+     */
     private SweetenerType getSweetenerType() {
         SweetenerType sweetener = null;
         boolean valid = false;
@@ -375,6 +432,12 @@ public class DrinkCustomizer {
         return sweetener;
     }
 
+    /**
+     * Prompts user to select a sweetness level (0% to 125%, in increments of 25).
+     *
+     * @return the sweetness level as a decimal (0.0 to 1.25)
+     * @throws RuntimeException if user cancels the input
+     */
     private double getSweetnessLevel() {
         double sweetnessLevel = 1;
         boolean valid = false;
@@ -411,6 +474,12 @@ public class DrinkCustomizer {
         return sweetnessLevel;
     }
 
+    /**
+     * Prompts user to select an ice level (0% to 125%, in increments of 25).
+     *
+     * @return the ice level as a decimal (0.0 to 1.25)
+     * @throws RuntimeException if user cancels the input
+     */
     private double getIceLevel() {
         double iceLevel = 1;
         boolean valid = false;
@@ -447,6 +516,12 @@ public class DrinkCustomizer {
         return iceLevel;
     }
 
+    /**
+     * Prompts user to select a milk type.
+     *
+     * @return the chosen MilkType
+     * @throws RuntimeException if user cancels the input
+     */
     private MilkType getMilkType() {
         MilkType milkType = null;
         boolean valid = false;
@@ -473,6 +548,13 @@ public class DrinkCustomizer {
         return milkType;
     }
 
+    /**
+     * Prompts user to select toppings to add.
+     * Limits the number of toppings to 5.
+     *
+     * @return an ArrayList of selected Topping objects; may be empty if skipped
+     * @throws RuntimeException if user cancels the input
+     */
     private ArrayList<Topping> getToppings() {
         ArrayList<Topping> toppings = new ArrayList<>();
         boolean valid = false;
@@ -525,6 +607,12 @@ public class DrinkCustomizer {
         return toppings;
     }
 
+    /**
+     * Prompts user to add a plushie upgrade if desired.
+     *
+     * @return true if a plushie upgrade is chosen, false otherwise
+     * @throws RuntimeException if user cancels the input
+     */
     private boolean getHasPlushie() {
         boolean hasPlushie = true;
         boolean valid = false;
@@ -554,6 +642,14 @@ public class DrinkCustomizer {
     }
 
     // *** PRIVATE HELPERS FOR OPTIONAL ***
+
+    /**
+     * Optional helper for customizing size with a default value.
+     *
+     * @param defaultVal the size to keep if the user skips input
+     * @return the selected DrinkSize
+     * @throws RuntimeException if user cancels the input
+     */
     private DrinkSize getOptionalSize(DrinkSize defaultVal) {
         DrinkSize size = null;
         boolean valid = false;
@@ -587,6 +683,13 @@ public class DrinkCustomizer {
         return size;
     }
 
+    /**
+     * Optional helper for customizing tea type with a default value.
+     *
+     * @param defaultVal the tea type to keep if the user skips input
+     * @return the selected TeaType
+     * @throws RuntimeException if user cancels the input
+     */
     private TeaType getOptionalTeaType(TeaType defaultVal) {
         TeaType teaType = null;
         boolean valid = false;
@@ -618,6 +721,12 @@ public class DrinkCustomizer {
         return teaType;
     }
 
+    /**
+     * Optional helper for iced/hot choice with default as iced.
+     *
+     * @return true if iced, false if hot
+     * @throws RuntimeException if user cancels the input
+     */
     private boolean getOptionalIcedOrHot() {
         boolean isIced = true;
         boolean valid = false;
@@ -645,6 +754,13 @@ public class DrinkCustomizer {
         return isIced;
     }
 
+    /**
+     * Optional helper for customizing sweetener with a default value.
+     *
+     * @param defaultVal the sweetener to keep if the user skips input
+     * @return the selected SweetenerType
+     * @throws RuntimeException if user cancels the input
+     */
     private SweetenerType getOptionalSweetenerType(SweetenerType defaultVal) {
         SweetenerType sweetener = null;
         boolean valid = false;
@@ -678,6 +794,13 @@ public class DrinkCustomizer {
         return sweetener;
     }
 
+    /**
+     * Optional helper for customizing sweetness level with a default value.
+     *
+     * @param defaultVal the sweetness level to keep if skipped
+     * @return the selected sweetness level as a decimal
+     * @throws RuntimeException if user cancels the input
+     */
     private double getOptionalSweetnessLevel(double defaultVal) {
         double sweetnessLevel = 1;
         boolean valid = false;
@@ -721,6 +844,13 @@ public class DrinkCustomizer {
         return sweetnessLevel;
     }
 
+    /**
+     * Optional helper for customizing ice level with a default value.
+     *
+     * @param defaultVal the ice level to keep if skipped
+     * @return the selected ice level as a decimal
+     * @throws RuntimeException if user cancels the input
+     */
     private double getOptionalIceLevel(double defaultVal) {
         double iceLevel = 1;
         boolean valid = false;
@@ -764,6 +894,13 @@ public class DrinkCustomizer {
         return iceLevel;
     }
 
+    /**
+     * Optional helper for customizing milk type with a default value.
+     *
+     * @param defaultVal the milk type to keep if skipped
+     * @return the selected MilkType
+     * @throws RuntimeException if user cancels the input
+     */
     private MilkType getOptionalMilkType(MilkType defaultVal) {
         MilkType milkType = null;
         boolean valid = false;
@@ -797,6 +934,14 @@ public class DrinkCustomizer {
         return milkType;
     }
 
+    /**
+     * Optional helper for customizing toppings with default values.
+     * Prompts user to remove and/or add toppings while keeping the maximum of 5.
+     *
+     * @param defaultVals the toppings to start with
+     * @return an ArrayList of updated Topping objects
+     * @throws RuntimeException if user cancels the input
+     */
     private ArrayList<Topping> getOptionalToppings(ArrayList<Topping> defaultVals) {
         ArrayList<Topping> toppings = new ArrayList<>(defaultVals);
         boolean validChoice = false;
@@ -938,6 +1083,12 @@ public class DrinkCustomizer {
         return toppings;
     }
 
+    /**
+     * Optional helper for customizing plushie upgrade with default as no plushie.
+     *
+     * @return true if plushie upgrade is selected, false otherwise
+     * @throws RuntimeException if user cancels the input
+     */
     private boolean getOptionalHasPlushie() {
         boolean hasPlushie = false;
         boolean valid = false;
