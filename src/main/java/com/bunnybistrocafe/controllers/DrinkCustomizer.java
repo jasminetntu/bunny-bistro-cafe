@@ -156,7 +156,7 @@ public class DrinkCustomizer {
     }
 
     private ArrayList<TeaFlavor> getTeaFlavors() {
-        ArrayList<TeaFlavor> teaFlavors = new ArrayList<>();;
+        ArrayList<TeaFlavor> teaFlavors = new ArrayList<>();
         boolean valid = false;
 
         UserInterface.printTeaFlavorOptions();
@@ -201,11 +201,6 @@ public class DrinkCustomizer {
                         System.out.println("Not a valid flavor number (1-7). Please try again.");
                         valid = false;
                     }
-
-                    // if any invalid input, clear list -> ensures any invalid num means entire input is invalid
-                    if (!valid) {
-                        teaFlavors.clear();
-                    }
                 } // end for
             } // end else
         } //end while
@@ -242,7 +237,7 @@ public class DrinkCustomizer {
     }
 
     private ArrayList<CoffeeFlavor> getCoffeeFlavors() {
-        ArrayList<CoffeeFlavor> coffeeFlavors = new ArrayList<>();;
+        ArrayList<CoffeeFlavor> coffeeFlavors = new ArrayList<>();
         boolean valid = false;
 
         UserInterface.printCoffeeFlavorOptions();
@@ -282,11 +277,6 @@ public class DrinkCustomizer {
                     catch (IllegalArgumentException e) { //invalid abbrev
                         System.out.println("Not a valid flavor (M, C, V). Please try again.");
                         valid = false;
-                    }
-
-                    // if any invalid input, clear list -> ensures any invalid num means entire input is invalid
-                    if (!valid) {
-                        coffeeFlavors.clear();
                     }
                 } // end for
             } // end else
@@ -420,7 +410,7 @@ public class DrinkCustomizer {
     }
 
     private ArrayList<Topping> getToppings() {
-        ArrayList<Topping> toppings = new ArrayList<>();;
+        ArrayList<Topping> toppings = new ArrayList<>();
         boolean valid = false;
 
         UserInterface.printToppingOptions();
@@ -463,11 +453,6 @@ public class DrinkCustomizer {
                     catch (IllegalArgumentException e) { //integer out of bounds
                         System.out.println("Not a valid topping number (1-14). Please try again.");
                         valid = false;
-                    }
-
-                    // if any invalid input, clear list -> ensures any invalid num means entire input is invalid
-                    if (!valid) {
-                        toppings.clear();
                     }
                 } // end for
             } // end else
