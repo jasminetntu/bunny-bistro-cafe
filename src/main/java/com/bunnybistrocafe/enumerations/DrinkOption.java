@@ -1,7 +1,7 @@
 package com.bunnybistrocafe.enumerations;
 
 public enum DrinkOption {
-    SIGNATURE(1), SEASONAL(2), CUSTOM(3);
+    SIGNATURE(1), CUSTOM(2);
 
     private final int num;
 

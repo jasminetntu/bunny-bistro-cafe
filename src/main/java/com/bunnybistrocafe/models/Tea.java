@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Tea extends Drink {
     private TeaType teaType;
-    private ArrayList<TeaFlavor> flavors; //max 3
+    private final ArrayList<TeaFlavor> flavors; //max 3
 
     // *** CONSTRUCTORS ***
     public Tea() {
@@ -21,6 +21,14 @@ public class Tea extends Drink {
                boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie,
                TeaType teaType, ArrayList<TeaFlavor> flavors) {
         super(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie);
+        this.teaType = teaType;
+        this.flavors = flavors;
+    }
+
+    public Tea(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
+               boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie, String specialName,
+               TeaType teaType, ArrayList<TeaFlavor> flavors) {
+        super(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, specialName);
         this.teaType = teaType;
         this.flavors = flavors;
     }

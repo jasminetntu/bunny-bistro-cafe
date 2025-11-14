@@ -28,6 +28,15 @@ public class MilkTea extends Drink {
         this.flavors = flavors;
     }
 
+    public MilkTea(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
+                   boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie, String specialName,
+                   TeaType teaType, MilkType milk, ArrayList<TeaFlavor> flavors) {
+        super(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, specialName);
+        this.teaType = teaType;
+        this.milk = milk;
+        this.flavors = flavors;
+    }
+
     // *** GETTERS ***
     public TeaType getTeaType() {
         return teaType;

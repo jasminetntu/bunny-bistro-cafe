@@ -304,7 +304,7 @@ public class DrinkCustomizer {
                 valid = true;
             }
             catch (IllegalArgumentException e) {
-                System.out.println("Not a valid sweetener (C, S, H). Please try again.");
+                System.out.println("Not a valid sweetener (C, S, H, CM). Please try again.");
             }
         }
 

@@ -76,8 +76,7 @@ public class UserInterface {
                 •·······················•·······················•
                 View...
                     (1) 🧋 Signature Drinks (TBA)
-                    (2) 🍃 Seasonal Drinks (TBA)
-                    (3) 📝 Custom Drink
+                    (2) 📝 Custom Drink
                 
                     (R) Return to order
                 
@@ -140,7 +139,30 @@ public class UserInterface {
 
     public static void printSignatureDrinkMenu() {
         System.out.print("""
-                Signature drinks TBA.""");
+                
+                •···················•···················•···················•···················•
+                ·                          Bunny Bistro Signatures 🐰                           ·
+                •···················•···················•···················•···················•
+                · 🍵 Matcha                             · ☕️ Coffee                             ·
+                ·   (1)  Matcha Latte                   ·       (6)  Vietnamese Coffee          ·
+                ·   (2)  Honey Matcha Latte             ·       (7)  Caffe Mocha                ·
+                ·   (3)  Strawberry Matcha              ·       (3)  Caffe Caramel              ·
+                ·   (4)  Mango Matcha                   ·       (4)  Caffe Vanilla              ·
+                ·   (5)  Matcha Cloud                   ·       (4)  Caffe Cloud                ·
+                ·                                       ·                                       ·
+                · 🧋 Milk Tea                           · 🍓 Fruit Tea                          ·
+                ·   (11) Classic Milk Tea               ·       11) Berry Burrow                ·
+                ·   (7)  Jasmine Milk Tea               ·       12) Mango Heaven                ·
+                ·   (3)  Oolong Milk Tea                ·       13) Watermelon Lychee Bliss     ·
+                ·   (4)  Thai Milk Tea                  ·       14) Peach Paradise              ·
+                ·   (4)  Wintermelon Milk Tea           ·       14) Fruit Overload              ·
+                ·   (11) Peach Oolong Milk Tea          ·       11) Sunrise Orchard             ·
+                ·   (7)  Strawberry Milk Tea            ·       12) Passionfruit Burst          ·
+                ·   (3)  Mango Milk Tea                 ·       13) Dreamy Lychee               ·
+                •···················•···················•···················•···················•
+                ·   (R) Return to order                                                         ·
+                •···················•···················•···················•···················•
+                """);
     }
 
     // *** DRINK CUSTOMIZATION OPTIONS ***

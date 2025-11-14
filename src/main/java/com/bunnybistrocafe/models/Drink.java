@@ -15,6 +15,7 @@ public abstract class Drink implements MenuItem {
     private double iceLevel;
     private ArrayList<Topping> toppings;
     private boolean hasPlushie;
+    private String specialName; //null if NOT a signature drink / seasonal
 
     // *** CONSTRUCTORS ***
     public Drink() {
@@ -26,6 +27,7 @@ public abstract class Drink implements MenuItem {
         this.iceLevel = 1;
         this.toppings = new ArrayList<>();
         this.hasPlushie = false;
+        this.specialName = null;
     }
 
     public Drink(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
@@ -38,6 +40,12 @@ public abstract class Drink implements MenuItem {
         this.iceLevel = iceLevel;
         this.toppings = toppings;
         this.hasPlushie = hasPlushie;
+    }
+
+    public Drink(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
+                 boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie, String specialName) {
+        this(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie);
+        this.specialName = specialName;
     }
 
     // *** GETTERS ***

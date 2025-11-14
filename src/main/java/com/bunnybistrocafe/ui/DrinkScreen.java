@@ -42,12 +42,7 @@ public class DrinkScreen implements Screen {
 
                     switch (drinkChoice) {
                         case SIGNATURE -> {
-                            System.out.println("Signatures TBA.");
-                            UserInterface.waitForKey(scnr);
-                            //todo
-                        }
-                        case SEASONAL -> {
-                            System.out.println("Seasonals TBA.");
+                            getSignatureDrink();
                             UserInterface.waitForKey(scnr);
                             //todo
                         }
@@ -75,5 +70,9 @@ public class DrinkScreen implements Screen {
             } //end else
         } //end while
     } //end method
+
+    private void getSignatureDrink() {
+        UserInterface.printSignatureDrinkMenu();
+    }
 
 }

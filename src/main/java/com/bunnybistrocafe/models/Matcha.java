@@ -19,6 +19,12 @@ public class Matcha extends Drink {
         this.milk = milk;
     }
 
+    public Matcha(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel, boolean isIced,
+                  double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie, String specialName, MilkType milk) {
+        super(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, specialName);
+        this.milk = milk;
+    }
+
     // *** GETTERS ***
     public MilkType getMilk() {
         return milk;

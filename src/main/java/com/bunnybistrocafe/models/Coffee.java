@@ -25,6 +25,14 @@ public class Coffee extends Drink {
         this.flavors = flavors;
     }
 
+    public Coffee(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
+                  boolean isIced, double iceLevel, ArrayList<Topping> toppings, String specialName, boolean hasPlushie,
+                  MilkType milk, ArrayList<CoffeeFlavor> flavors) {
+        super(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie, specialName);
+        this.milk = milk;
+        this.flavors = flavors;
+    }
+
     // *** GETTERS ***
     public MilkType getMilk() {
         return milk;
