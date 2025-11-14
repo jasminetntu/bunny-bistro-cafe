@@ -1,5 +1,9 @@
 package com.bunnybistrocafe.enumerations.drinkcustomizations;
 
+/**
+ * Represents drink toppings, each with a numeric ID, name, and whether it is premium.
+ * Premium toppings cost more than regular toppings.
+ */
 public enum Topping {
     //regular toppings
     BOBA(1, "Boba", false), CRYSTAL_BOBA(2, "Crystal Boba", false), ALOE_VERA(3, "Aloe Vera", false), 
@@ -14,24 +18,52 @@ public enum Topping {
     private final String name;
     private final boolean isPremium;
 
+    /**
+     * Constructs a Topping enum instance.
+     *
+     * @param num numeric identifier
+     * @param name topping name
+     * @param isPremium whether the topping is premium
+     */
     Topping(int num, String name, boolean isPremium) {
         this.num = num;
         this.name = name;
         this.isPremium = isPremium;
     }
 
+    /**
+     * Returns the numeric menu option for this topping.
+     *
+     * @return numeric ID
+     */
     public int getNum() {
         return num;
     }
 
+    /**
+     * Returns the display name of this topping.
+     *
+     * @return topping name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns whether this topping is classified as premium.
+     *
+     * @return true if premium, false otherwise
+     */
     public boolean isPremium() {
         return isPremium;
     }
 
+    /**
+     * Returns the price of this topping.
+     * Premium toppings cost more than regular toppings.
+     *
+     * @return topping price
+     */
     public double getPrice() {
         if (isPremium) { //premium
             return 1.00;
@@ -40,6 +72,13 @@ public enum Topping {
         }
     }
 
+    /**
+     * Converts a numeric value into the corresponding Topping enum.
+     *
+     * @param num numeric ID
+     * @return matching Topping
+     * @throws IllegalArgumentException if no match exists
+     */
     public static Topping fromNum(int num) {
         // iterate through all enum values
         for (Topping option : Topping.values()) {
@@ -53,6 +92,11 @@ public enum Topping {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Returns this topping's display name.
+     *
+     * @return name of the topping
+     */
     @Override
     public String toString() {
         return name;

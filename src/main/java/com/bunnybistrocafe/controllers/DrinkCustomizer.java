@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Handles drink customization.
+ */
 public class DrinkCustomizer {
     private final Scanner scnr;
 

@@ -7,6 +7,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Represents all preset signature drink options offered by the Bunny Bistro Café
+ * kiosk. Each enum constant corresponds to a complete, preset drink.
+ *
+ * Each option has:
+ * a number for menu selection
+ * a fully constructed {@link Drink} object representing the signature drink
+ */
 public enum SignatureDrinkOption {
     // matcha
     MATCHA_LATTE(1, new SignatureMatcha(SweetenerType.CANE_SUGAR, new ArrayList<>(), "Matcha Latte")),
@@ -68,19 +76,42 @@ public enum SignatureDrinkOption {
     private final int num;
     private final Drink drink;
 
+    /**
+     * Constructor for a signature drink option.
+     *
+     * @param num    numeric ID representing the menu selection
+     * @param drink  fully constructed {@link Drink} object for this signature option
+     */
     SignatureDrinkOption(int num, Drink drink) {
         this.num = num;
         this.drink = drink;
     }
 
+    /**
+     * Gets the numeric menu option associated with this signature drink.
+     *
+     * @return numeric option value
+     */
     public int getNum() {
         return num;
     }
 
+    /**
+     * Retrieves the {@link Drink} object representing this signature drink.
+     *
+     * @return configured signature drink
+     */
     public Drink getDrink() {
         return drink;
     }
 
+    /**
+     * Converts a numeric input into the corresponding SignatureDrinkOption.
+     *
+     * @param num numeric selection (1–26)
+     * @return matching SignatureDrinkOption
+     * @throws IllegalArgumentException if the number does not match any signature drink
+     */
     public static SignatureDrinkOption fromNum(int num) {
         // iterate through all enum values
         for (SignatureDrinkOption option : SignatureDrinkOption.values()) {

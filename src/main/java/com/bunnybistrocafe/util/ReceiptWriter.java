@@ -10,7 +10,18 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Utility class responsible for generating and writing receipts for completed orders.
+ */
 public class ReceiptWriter {
+    /**
+     * Generates a fully formatted text receipt for the given order.
+     * Includes: header, all items in the order, displayed using
+     * {@link MenuItem#toString()} implementations, subtotal, tax, and total
+     *
+     * @param order the customer's {@link Order} containing all purchased items
+     * @return a formatted receipt as a {@link String}
+     */
     public String getReceipt(Order order) {
         final double taxPercent = 0.09;
 
@@ -44,6 +55,14 @@ public class ReceiptWriter {
         return sb.toString();
     }
 
+    /**
+     * Writes the receipt for the given order to a timestamped .txt file.
+     * Saved into a directory named receipts at the project root.
+     * Filename format: yyyyMMdd-hhmmss.txt
+     *
+     * @param order the {@link Order} for which to generate and save a receipt
+     * @throws IOException if the file cannot be created or written to
+     */
     public void writeToTxtFile(Order order) throws IOException {
         //File name format: yyyyMMdd-hhmmss.txt (e.g., 20230329-121523.txt)
         final String RECEIPT_FOLDER = "receipts";

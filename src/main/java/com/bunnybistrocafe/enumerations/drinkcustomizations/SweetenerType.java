@@ -1,5 +1,9 @@
 package com.bunnybistrocafe.enumerations.drinkcustomizations;
 
+/**
+ * Represents available sweetener options for drinks, each with an abbreviation,
+ * display name, and additional price.
+ */
 public enum SweetenerType {
     CANE_SUGAR("C", "Cane Sugar", 0.00), STEVIA("S", "Stevia", 0.00),
     HONEY("H", "Honey", 0.50), CONDENSED_MILK("CM", "Condensed Milk", 0.00);
@@ -8,24 +12,53 @@ public enum SweetenerType {
     private final String name;
     private final double price;
 
+    /**
+     * Constructs a SweetenerType enum instance.
+     *
+     * @param abbreviation short code for the sweetener
+     * @param name display name of the sweetener
+     * @param price additional cost for selecting this sweetener
+     */
     SweetenerType(String abbreviation, String name, double price) {
         this.abbreviation = abbreviation;
         this.name = name;
         this.price = price;
     }
 
+    /**
+     * Returns this sweetener's abbreviation.
+     *
+     * @return abbreviation string
+     */
     public String getAbbreviation() {
         return abbreviation;
     }
 
+    /**
+     * Returns this sweetener's display name.
+     *
+     * @return sweetener name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns the additional cost for this sweetener.
+     *
+     * @return price of sweetener
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * Converts a user input abbreviation into the corresponding SweetenerType.
+     *
+     * @param abbrev abbreviation input (case-insensitive)
+     * @return matching SweetenerType
+     * @throws IllegalArgumentException if input does not match any enum value
+     */
     public static SweetenerType fromAbbreviation(String abbrev) {
         abbrev = abbrev.trim().toUpperCase();
 
@@ -41,6 +74,11 @@ public enum SweetenerType {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Returns this sweetener's display name.
+     *
+     * @return name of the sweetener
+     */
     @Override
     public String toString() {
         return name;

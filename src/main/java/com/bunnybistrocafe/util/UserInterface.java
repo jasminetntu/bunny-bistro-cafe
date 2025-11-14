@@ -2,6 +2,10 @@ package com.bunnybistrocafe.util;
 
 import java.util.Scanner;
 
+/**
+ * Utility class responsible for printing all user-facing menus and prompts.
+ * All methods are static since it's used for UI output and contains no instance state.
+ */
 public class UserInterface {
     // *** TOOLS ***
     /**
@@ -31,6 +35,10 @@ public class UserInterface {
     }
 
     // *** MENUS ***
+
+    /**
+     * Prints the home screen menu, allowing the user to start a new order or exit.
+     */
     public static void printHomeMenu() {
         System.out.print("""
                 
@@ -46,6 +54,10 @@ public class UserInterface {
                 > Enter choice (N, X):\s""");
     }
 
+    /**
+     * Prints the order menu, showing options to add items, view the order,
+     * check out, or cancel.
+     */
     public static void printOrderMenu() {
         System.out.print("""
                 
@@ -66,6 +78,10 @@ public class UserInterface {
                 > Enter choice (1-5, R):\s""");
     }
 
+    /**
+     * Prints drink selection options for choosing between signature drinks
+     * and fully custom drinks.
+     */
     public static void printDrinkMenu() {
         System.out.print("""
                 
@@ -83,6 +99,9 @@ public class UserInterface {
                 > Enter choice (1-2, R):\s""");
     }
 
+    /**
+     * Prints the pastry selection menu, listing all available pastry items.
+     */
     public static void printPastryMenu() {
         System.out.print("""
                 
@@ -107,6 +126,9 @@ public class UserInterface {
                 > Enter choice (1-9, R):\s""");
     }
 
+    /**
+     * Prints the entrée selection menu, listing all available entrée items.
+     */
     public static void printEntreeMenu() {
         System.out.print("""
                 
@@ -126,6 +148,10 @@ public class UserInterface {
                 > Enter choice (1-4, R):\s""");
     }
 
+    /**
+     * Prints the checkout confirmation menu, allowing the user to finalize,
+     * cancel, or return to the order.
+     */
     public static void printCheckoutMenu() {
         System.out.print("""
                 
@@ -139,6 +165,9 @@ public class UserInterface {
                 > Enter choice (Y, N, R):\s""");
     }
 
+    /**
+     * Prints the menu of Bunny Bistro signature drinks.
+     */
     public static void printSignatureDrinkMenu() {
         System.out.print("""
                 
@@ -168,6 +197,10 @@ public class UserInterface {
     }
 
     // *** DRINK CUSTOMIZATION OPTIONS ***
+
+    /**
+     * Prints the available drink size options.
+     */
     public static void printSizeOptions() {
         System.out.println("""
                 
@@ -183,6 +216,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints the available drink type options (Matcha, Coffee, Milk Tea, etc.).
+     */
     public static void printDrinkTypeOptions() {
         System.out.print("""
                 
@@ -199,6 +235,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints the available tea types (e.g., Black, Green, Oolong).
+     */
     public static void printTeaTypeOptions() {
         System.out.print("""
                 
@@ -216,6 +255,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints the available tea flavors, including pricing details and limits.
+     */
     public static void printTeaFlavorOptions() {
         System.out.print("""
                 
@@ -239,6 +281,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints iced vs. hot drink options.
+     */
     public static void printIcedOrHotOptions() {
         System.out.print("""
                 
@@ -253,6 +298,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints the available coffee flavor add-ons.
+     */
     public static void printCoffeeFlavorOptions() {
         System.out.print("""
                 
@@ -272,6 +320,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints the available sweetener options.
+     */
     public static void printSweetenerTypeOptions() {
         System.out.print("""
                 
@@ -288,6 +339,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints sweetness levels.
+     */
     public static void printSweetnessLevelOptions() {
         System.out.print("""
                 
@@ -308,6 +362,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints ice level options.
+     */
     public static void printIceLevelOptions() {
         System.out.print("""
                 
@@ -328,6 +385,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints milk type options.
+     */
     public static void printMilkTypeOptions() {
         System.out.print("""
                 
@@ -344,6 +404,10 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints available toppings, divided into regular and premium categories.
+     * Includes instructions for formatting user input.
+     */
     public static void printToppingOptions() {
         System.out.print("""
                 
@@ -371,6 +435,9 @@ public class UserInterface {
                 """);
     }
 
+    /**
+     * Prints the plushie cup upgrade option.
+     */
     public static void printPlushieOptions() {
         System.out.print("""
                 
