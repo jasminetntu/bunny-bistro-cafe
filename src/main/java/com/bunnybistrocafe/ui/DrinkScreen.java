@@ -4,7 +4,7 @@ import com.bunnybistrocafe.controllers.DrinkCustomizer;
 import com.bunnybistrocafe.controllers.OrderManager;
 import com.bunnybistrocafe.enumerations.DrinkOption;
 import com.bunnybistrocafe.enumerations.ActionOption;
-import com.bunnybistrocafe.models.SignatureDrink;
+import com.bunnybistrocafe.enumerations.SignatureDrinkOption;
 import com.bunnybistrocafe.models.Drink;
 import com.bunnybistrocafe.util.UserInterface;
 
@@ -45,24 +45,9 @@ public class DrinkScreen implements Screen {
                         case SIGNATURE -> {
                             getSignatureDrink();
                             UserInterface.waitForKey(scnr);
-                            //todo
                         }
                         case CUSTOM -> {
-                            DrinkCustomizer drinkCustomizer = new DrinkCustomizer(scnr);
-                            Drink drink = drinkCustomizer.customizeDrink();
-
-                            if (drink != null) {
-                                boolean success = orderManager.addItemToOrder(drink);
-
-                                if (success) {
-                                    System.out.printf("%s %s was added to your order.%n",
-                                            drink.getSize().getName(), drink.getType().getName());
-                                } else {
-                                    System.out.println("Something went wrong when adding to order.");
-                                }
-
-                                UserInterface.waitForKey(scnr);
-                            }
+                            getCustomDrink();
                         }
                     }
                 } catch (IllegalArgumentException e) {
@@ -72,11 +57,31 @@ public class DrinkScreen implements Screen {
         } //end while
     } //end method
 
+    // *** HELPERS ***
+    private void getCustomDrink() {
+        DrinkCustomizer drinkCustomizer = new DrinkCustomizer(scnr);
+        Drink drink = drinkCustomizer.customizeDrink();
+
+        if (drink != null) {
+            boolean success = orderManager.addItemToOrder(drink);
+
+            if (success) {
+                System.out.printf("%s %s was added to your order.%n",
+                        drink.getSize().getName(), drink.getType().getName());
+            } else {
+                System.out.println("Something went wrong when adding to order.");
+            }
+
+            UserInterface.waitForKey(scnr);
+        }
+    }
+
+    //todo
     private void getSignatureDrink() {
         boolean valid = false;
         boolean success = false;
         String input = "";
-        SignatureDrink signatureDrink = null;
+        SignatureDrinkOption signatureDrinkOption = null;
 
         UserInterface.printSignatureDrinkMenu();
 
@@ -90,7 +95,7 @@ public class DrinkScreen implements Screen {
             }
 
             try {
-                signatureDrink = SignatureDrink.fromNum(Integer.parseInt(input));
+                signatureDrinkOption = SignatureDrinkOption.fromNum(Integer.parseInt(input));
                 valid = true;
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid choice. Must be 1-26.");
@@ -105,21 +110,36 @@ public class DrinkScreen implements Screen {
 
             if (input.equalsIgnoreCase("Y")) {
                 DrinkCustomizer dc = new DrinkCustomizer(scnr);
-                Drink customizedDrink = dc.customizeSignatureDrink(signatureDrink.getDrink());
-                success = orderManager.addItemToOrder(customizedDrink);
-                valid = true;
-            } else if (input.equalsIgnoreCase("N")) {
-                success = orderManager.addItemToOrder(signatureDrink.getDrink());
-                valid = true;
-            } else {
-                System.out.println("Invalid choice. Please enter Y or N.");
-            }
+                Drink customizedDrink = dc.customizeSignatureDrink(signatureDrinkOption.getDrink());
+                if (customizedDrink != null) {
+                    success = orderManager.addItemToOrder(customizedDrink);
 
-            if (success) {
-                System.out.printf("%s %s was added to your order.%n",
-                        signatureDrink.getDrink().getSize().getName(), signatureDrink.getDrink().getType().getName());
-            } else {
-                System.out.println("Something went wrong when adding to order.");
+                    if (success) {
+                        System.out.printf("%s %s was added to your order.%n",
+                                customizedDrink.getSize().getName(), customizedDrink.getType().getName());
+                    } else {
+                        System.out.println("Something went wrong when adding to order.");
+                    }
+                }
+
+                UserInterface.waitForKey(scnr);
+                valid = true;
+            }
+            else if (input.equalsIgnoreCase("N")) {
+                success = orderManager.addItemToOrder(signatureDrinkOption.getDrink());
+
+                if (success) {
+                    System.out.printf("%s %s was added to your order.%n",
+                            signatureDrinkOption.getDrink().getSize().getName(), signatureDrinkOption.getDrink().getType().getName());
+                } else {
+                    System.out.println("Something went wrong when adding to order.");
+                }
+
+                UserInterface.waitForKey(scnr);
+                valid = true;
+            }
+            else {
+                System.out.println("Invalid choice. Please enter Y or N.");
             }
         }
     }

@@ -25,8 +25,8 @@ public class Coffee extends Drink {
         this.flavors = flavors;
     }
 
-    public Coffee(ArrayList<Topping> toppings, String specialName, ArrayList<CoffeeFlavor> flavors) {
-        super(DrinkSize.MEDIUM, DrinkType.COFFEE, SweetenerType.CONDENSED_MILK, 1, true, 1, toppings, false, specialName);
+    public Coffee(ArrayList<Topping> toppings, ArrayList<CoffeeFlavor> flavors) {
+        super(DrinkSize.MEDIUM, DrinkType.COFFEE, SweetenerType.CONDENSED_MILK, 1, true, 1, toppings, false);
         this.milk = MilkType.WHOLE;
         this.flavors = flavors;
     }

@@ -25,8 +25,8 @@ public class Tea extends Drink {
         this.flavors = flavors;
     }
 
-    public Tea(ArrayList<Topping> toppings, String specialName, TeaType teaType, ArrayList<TeaFlavor> flavors) {
-        super(DrinkSize.MEDIUM, DrinkType.TEA, SweetenerType.CANE_SUGAR, 1, true, 1, toppings, false, specialName);
+    public Tea(ArrayList<Topping> toppings, TeaType teaType, ArrayList<TeaFlavor> flavors) {
+        super(DrinkSize.MEDIUM, DrinkType.TEA, SweetenerType.CANE_SUGAR, 1, true, 1, toppings, false);
         this.teaType = teaType;
         this.flavors = flavors;
     }

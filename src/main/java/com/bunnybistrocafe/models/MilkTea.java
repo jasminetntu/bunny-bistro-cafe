@@ -28,8 +28,8 @@ public class MilkTea extends Drink {
         this.flavors = flavors;
     }
 
-    public MilkTea(ArrayList<Topping> toppings, String specialName, TeaType teaType, ArrayList<TeaFlavor> flavors) {
-        super(DrinkSize.MEDIUM, DrinkType.MILK_TEA, SweetenerType.CANE_SUGAR, 1, true, 1, toppings, false, specialName);
+    public MilkTea(ArrayList<Topping> toppings, TeaType teaType, ArrayList<TeaFlavor> flavors) {
+        super(DrinkSize.MEDIUM, DrinkType.MILK_TEA, SweetenerType.CANE_SUGAR, 1, true, 1, toppings, false);
         this.teaType = teaType;
         this.milk = MilkType.WHOLE;
         this.flavors = flavors;

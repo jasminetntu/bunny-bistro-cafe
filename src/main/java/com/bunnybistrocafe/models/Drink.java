@@ -15,7 +15,6 @@ public abstract class Drink implements MenuItem {
     private double iceLevel;
     private ArrayList<Topping> toppings;
     private boolean hasPlushie;
-    private String specialName; //null if NOT a signature drink
 
     // *** CONSTRUCTORS ***
     public Drink() {
@@ -27,11 +26,11 @@ public abstract class Drink implements MenuItem {
         this.iceLevel = 1;
         this.toppings = new ArrayList<>();
         this.hasPlushie = false;
-        this.specialName = null;
     }
 
     public Drink(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
                  boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie) {
+        this();
         this.size = size;
         this.type = type;
         this.sweetener = sweetener;
@@ -40,12 +39,6 @@ public abstract class Drink implements MenuItem {
         this.iceLevel = iceLevel;
         this.toppings = toppings;
         this.hasPlushie = hasPlushie;
-    }
-
-    public Drink(DrinkSize size, DrinkType type, SweetenerType sweetener, double sweetnessLevel,
-                 boolean isIced, double iceLevel, ArrayList<Topping> toppings, boolean hasPlushie, String specialName) {
-        this(size, type, sweetener, sweetnessLevel, isIced, iceLevel, toppings, hasPlushie);
-        this.specialName = specialName;
     }
 
     // *** GETTERS ***
@@ -173,9 +166,16 @@ public abstract class Drink implements MenuItem {
 
         //iced or hot
         if (isIced) {
-            firstLine = firstLine + " Iced " + type.getName();
+            firstLine = firstLine + " Iced ";
         } else {
-            firstLine = firstLine + " Hot " + type.getName();
+            firstLine = firstLine + " Hot ";
+        }
+
+        //custom or signature
+        if (signatureName == null) { //custom
+            firstLine = firstLine + type.getName();
+        } else { //signature
+            firstLine = firstLine + signatureName;
         }
 
         //append firstLine (size, isIced, type) w/ spacing, then append price
@@ -231,8 +231,12 @@ public abstract class Drink implements MenuItem {
             sb.append(" Hot ");
         }
 
-        //type
-        sb.append(type.getName());
+        //custom or signature
+        if (signatureName == null) { //custom
+            sb.append(type.getName());
+        } else { //signature
+            sb.append(signatureName);
+        }
 
         //sweetness level & sweetener
         sb.append(" | ")
