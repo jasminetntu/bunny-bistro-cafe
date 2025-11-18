@@ -67,6 +67,7 @@ Possible future enhancements include:
 - **Extended Menu Items:** Seasonal rotations, custom pastry options, and more.
 - **Order History:** Store previous orders in a user's profile.
 - **Character sets:** Ensure emojis are viewable on all systems/devices.
+- **Robust Unit Testing:** Add unit tests for all classes for maintainability.
 
 ---
 
